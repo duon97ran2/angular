@@ -12,6 +12,7 @@ import { UserComponent } from './user/user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DamageComponent } from './damage/damage.component';
 import { TableAvatarComponent } from './table/table-avatar/table-avatar.component';
+import { TypographyComponent } from './typography/typography.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TableAvatarComponent } from './table/table-avatar/table-avatar.componen
     UserComponent,
     DamageComponent,
     TableAvatarComponent,
+    TypographyComponent,
   ],
   imports: [
     BrowserModule,
