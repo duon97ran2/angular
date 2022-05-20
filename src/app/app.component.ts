@@ -70,4 +70,32 @@ export class AppComponent {
       avatar: "https://victory8.online/wp-content/uploads/2020/08/leesin-lien-minh-huyen-thoai-1-e1597644246760.jpg"
     },
   ];
+  visible = false;
+  displayHandle() {
+    this.visible = !this.visible;
+  };
+  champData = {
+    name: '',
+    avatar: '',
+    damage: '',
+    defend: '',
+    speed: '',
+    price: '',
+  }
+
+  onSubmit(event: any) {
+    this.champs.push({
+      ...this.champData,
+      damage: +this.champData.damage,
+      defend: +this.champData.defend,
+      speed: +this.champData.speed,
+      price: +this.champData.price
+    });
+    this.champData.name = '';
+    this.champData.avatar = '';
+  };
+  onInput(event: any, text: 'name' | 'avatar' | 'damage' | 'defend' | 'speed' | 'price') {
+    this.champData[text] = event.target.value;
+  };
+
 }

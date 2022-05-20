@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DamageComponent } from './damage/damage.component';
 import { TableAvatarComponent } from './table/table-avatar/table-avatar.component';
 import { TypographyComponent } from './typography/typography.component';
+import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
+import { ShowValidateComponent } from './components/show-validate/show-validate.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,15 @@ import { TypographyComponent } from './typography/typography.component';
     DamageComponent,
     TableAvatarComponent,
     TypographyComponent,
+    FormComponent,
+    ShowValidateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

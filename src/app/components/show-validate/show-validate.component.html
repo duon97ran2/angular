@@ -1,0 +1,8 @@
+<span *ngIf="field.errors?.['minlength']&&(field.dirty||field.touched)" class="text-danger">{{field.name}} must have
+  at least {{field.errors?.['minlength'].requiredLength}} characters </span>
+<span *ngIf="field.errors?.['required']&&(field.dirty||field.touched)" class="text-danger">{{field.name}} is
+  required</span>
+<span *ngIf="field.errors?.['min']&&(field.dirty||field.touched)" class="text-danger">{{field.name}} minimum
+  is {{field.errors?.['min'].min}}</span>
+<span *ngIf="field.errors?.['max']&&(field.dirty||field.touched)" class="text-danger">{{field.name}} maximum
+  is {{field.errors?.['max'].max}}</span>
