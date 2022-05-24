@@ -1,0 +1,26 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.age}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone}}</td>
+      <td>
+        <Button class="btn btn-danger" [disabled]="user.id==inputValues.id"
+          (click)="removeHandle(user.id)">Remove</Button> <button class="btn btn-success"
+          (click)="updateHandle(user.id)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,35 @@
+<form action="" #userForm="ngForm" (ngSubmit)="submitHandle(userForm)">
+  <input class="form-control" ngModel #id="ngModel" [(ngModel)]="inputValues.id" type="hidden" name="id">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input id="username" class="form-control" ngModel #username="ngModel" type="text" name="username" required
+      minlength="6" [(ngModel)]="inputValues.username" maxlength="20">
+    <!-- <span>{{username.errors|json}}</span> -->
+    <app-show-validate [field]="username"></app-show-validate>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input id="age" class="form-control" ngModel #age="ngModel" [(ngModel)]="inputValues.age" type="number" name="age"
+      required min="1" max="100">
+    <!-- <span>{{age.errors|json}}</span> -->
+    <app-show-validate [field]="age"></app-show-validate>
+
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" class="form-control" ngModel #email="ngModel" type="text" [(ngModel)]="inputValues.email"
+      name="email" required>
+    <!-- <span>{{age.errors|json}}</span> -->
+    <app-show-validate [field]="email"></app-show-validate>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone number</label>
+    <input id="phone" class="form-control" ngModel #phone="ngModel" [(ngModel)]="inputValues.phone" maxlength="11"
+      type="text" name="phone" required>
+    <!-- <span>{{age.errors|json}}</span> -->
+    <app-show-validate [field]="phone"></app-show-validate>
+  </div>
+  <div class="form-group">
+  </div>
+  <button class="btn btn-outline-primary my-2" [disabled]="!userForm.valid">Submit</button>
+</form>
