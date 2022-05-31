@@ -37,7 +37,11 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { ClientHeaderComponent } from './components/client-header/client-header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { MaterialModule } from './material/material.module';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ProductListComponent } from './admin/products/product-list/product-list.component';
+import { ProductCreateComponent } from './admin/products/product-create/product-create.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AdminLayoutComponent,
     ClientHeaderComponent,
     FooterComponent,
+    SidebarComponent,
+    ProductListComponent,
+    ProductCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +86,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MdbScrollspyModule,
     MdbTabsModule,
     MdbTooltipModule,
-    MdbValidationModule
+    MdbValidationModule,
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

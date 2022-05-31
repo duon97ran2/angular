@@ -1,0 +1,16 @@
+<mat-accordion>
+  <mat-expansion-panel class="rounded-0  ">
+    <mat-expansion-panel-header class="bg-primary text-white fw-semibold text-uppercase"> <span><i
+          class="fas fa-archive" aria-hidden="true"></i> Product
+        management</span>
+    </mat-expansion-panel-header>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option>
+        <a routerLink="/admin/products/list"><i class="fas fa-list-alt"></i> Product list</a>
+      </mat-list-option>
+      <mat-list-option>
+        <a routerLink="/admin/products/create"><i class="fas fa-plus-circle"></i> Create new product</a>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-expansion-panel>
+</mat-accordion>

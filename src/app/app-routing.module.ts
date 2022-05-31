@@ -1,3 +1,5 @@
+import { ProductCreateComponent } from './admin/products/product-create/product-create.component';
+import { ProductListComponent } from './admin/products/product-list/product-list.component';
 import { ClientLayoutComponent } from './layout/client-layout/client-layout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +13,21 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminLayoutComponent,
+    children: [
+      {
+        path: "products",
+        children: [
+          {
+            path: "list",
+            component: ProductListComponent
+          },
+          {
+            path: "create",
+            component: ProductCreateComponent
+          }
+        ]
+      }
+    ]
   }
 ];
 

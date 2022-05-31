@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-admin-layout',
@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-layout.component.css']
 })
 export class AdminLayoutComponent implements OnInit {
-
-  constructor() { }
+  opened = false;
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
