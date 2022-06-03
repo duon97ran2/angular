@@ -1,3 +1,4 @@
+import { ProductDetailComponent } from './admin/products/product-detail/product-detail.component';
 import { ProductCreateComponent } from './admin/products/product-create/product-create.component';
 import { ProductListComponent } from './admin/products/product-list/product-list.component';
 import { ClientLayoutComponent } from './layout/client-layout/client-layout.component';
@@ -23,6 +24,10 @@ const routes: Routes = [
           },
           {
             path: "create",
+            component: ProductCreateComponent
+          },
+          {
+            path: "create/:id",
             component: ProductCreateComponent
           }
         ]

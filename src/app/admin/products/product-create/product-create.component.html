@@ -1,1 +1,17 @@
-<p>product-create works!</p>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <h1>Create new product</h1>
+  <mat-card>
+    <div class="form-group my-3">
+      <label for="name">Name</label>
+      <input id="name" class="form-control" type="text" formControlName="name">
+    </div>
+    <app-show-validate [field]="productForm.get('name')" title="name"></app-show-validate>
+    <div class="form-group my-3">
+      <label for="price">Price</label>
+      <input id="price" class="form-control" type="number" formControlName="price">
+    </div>
+    <div class="my-3">
+      <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary">Create</button>
+    </div>
+  </mat-card>
+</form>

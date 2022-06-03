@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ShowValidateComponent implements OnInit {
   @Input() field: any;
+  @Input() title: any;
   console = console;
   constructor() { }
 

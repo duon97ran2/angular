@@ -42,6 +42,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProductListComponent } from './admin/products/product-list/product-list.component';
 import { ProductCreateComponent } from './admin/products/product-create/product-create.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './admin/products/product-detail/product-detail.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,8 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     ProductListComponent,
     ProductCreateComponent,
+    ProductDetailComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +93,8 @@ import { HttpClientModule } from '@angular/common/http';
     MdbTooltipModule,
     MdbValidationModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
