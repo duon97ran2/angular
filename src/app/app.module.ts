@@ -45,6 +45,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './admin/products/product-detail/product-detail.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -70,6 +74,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductCreateComponent,
     ProductDetailComponent,
     BreadcrumbComponent,
+    LoginComponent,
+    RegisterComponent,
+    AuthFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,7 +101,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MdbValidationModule,
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,9 @@ const apiURL = "http://localhost:5000/api";
 export const environment = {
   production: false,
   products: `${apiURL}/products`,
+  image: `${apiURL}/upload`,
+  login: `${apiURL}/login`,
+  register: `${apiURL}/register`,
 };
 
 /*

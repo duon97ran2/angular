@@ -15,9 +15,6 @@
           <li>
             <a class="dropdown-item" routerLink="/">Home</a>
           </li>
-          <li>
-            <a class="dropdown-item" routerLink="/admin">Admin</a>
-          </li>
         </ul>
       </div>
       <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
@@ -40,34 +37,46 @@
         <a routerLink="/">Home</a>
       </li>
 
-      <li class="nav-item fw-bold me-3 me-lg-4">
-        <a routerLink="/admin">Admin</a>
-      </li>
+
     </ul>
     <!-- Center elements -->
 
     <!-- Right elements -->
-    <ul class="navbar-nav flex-row">
+    <div *ngIf="!loggedInUser" class="nav-item me-3 me-lg-1 active">
+
+      <a routerLink="/register">
+        <button class="btn btn-outline-primary me-2" type="button">Register</button>
+      </a>
+      <a routerLink="/login">
+        <button class="btn btn-primary me-2" type="button">Login</button>
+      </a>
+    </div>
+    <ul class="navbar-nav flex-row" *ngIf="loggedInUser">
       <li class="nav-item me-3 me-lg-1 active">
         <a class="nav-link" href="#">
           <i class="fas fa-shopping-cart fa-lg"></i>
           <span class="badge rounded-pill badge-notification bg-danger">1</span>
         </a>
       </li>
+
+
       <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle hidden-arrow" href="#"
+        <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " href="#"
           id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
           <img src="https://mdbootstrap.com/img/new/avatars/1.webp" class="rounded-circle" height="22" alt=""
             loading="lazy" />
-          <strong class="d-none d-sm-block ms-1">John</strong>
+          <strong class="d-none d-sm-block ms-1">{{userData.email}}</strong>
         </a>
         <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-            <a class="dropdown-item" href="#">Some news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another news</a>
-          </li>
+          <a routerLink="/admin">
+            <li class="dropdown-item">
+              Admin
+            </li>
+          </a>
+          <a (click)="logOutHandle()">
+            <li class="dropdown-item">Log Out
+            </li>
+          </a>
           <li>
             <a class="dropdown-item" href="#">Something else here</a>
           </li>

@@ -25,12 +25,12 @@
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let element">
-      <a routerLink="/admin/products/create/{{element._id}}">
-        <button class="btn btn-primary me-2" type="button" matTooltip="Edit" matTooltipPosition="above"><i
+      <a routerLink="/admin/products/form/{{element._id}}">
+        <button class="btn btn-primary me-2" type="button" matTooltip="Edit" matTooltipPosition="left"><i
             class="fas fa-edit fa-xl" aria-hidden="true"></i></button>
       </a>
       <button class="btn btn-danger" (click)="onDelete(element._id)" type="button" matTooltip="Remove"
-        matTooltipPosition="above"><i class="fas fa-remove fa-xl" aria-hidden="true"></i></button>
+        matTooltipPosition="right"><i class="fas fa-remove fa-xl" aria-hidden="true"></i></button>
     </td>
   </ng-container>
 
