@@ -1,6 +1,6 @@
 import { ProductService } from './../../../services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ImageService } from 'src/app/services/image.service';
 
@@ -10,20 +10,20 @@ import { ImageService } from 'src/app/services/image.service';
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  productForm: FormGroup;
+  productForm: UntypedFormGroup;
   currentId: string | null = '';
   images: string[] = [];
   constructor(private productSevive: ProductService, private router: Router, private activateRoute: ActivatedRoute, private imageService: ImageService) {
-    this.productForm = new FormGroup(
+    this.productForm = new UntypedFormGroup(
       {
-        name: new FormControl("",
+        name: new UntypedFormControl("",
           [
             Validators.required,
             Validators.minLength(6),
             Validators.maxLength(12),
             // this.onVidateNameHasProduct
           ]),
-        price: new FormControl(0)
+        price: new UntypedFormControl(0)
       }
     );
   }

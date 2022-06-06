@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -11,19 +11,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthFormComponent implements OnInit {
   @Input() formType: any;
-  authForm: FormGroup
+  authForm: UntypedFormGroup
   constructor(
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService
   ) {
-    this.authForm = new FormGroup({
-      email: new FormControl('',
+    this.authForm = new UntypedFormGroup({
+      email: new UntypedFormControl('',
         [
           Validators.required,
           Validators.email
         ]),
-      password: new FormControl('',
+      password: new UntypedFormControl('',
         [
           Validators.required,
           Validators.minLength(5),
