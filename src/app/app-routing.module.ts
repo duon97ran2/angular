@@ -8,6 +8,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { CatgoryFormComponent } from './admin/category/catgory-form/catgory-form.component';
+import { CategoryListComponent } from './admin/category/category-list/category-list.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,28 @@ const routes: Routes = [
           {
             path: "form/:id",
             component: ProductCreateComponent
+          },
+          {
+            path: "detail/:id",
+            component: ProductDetailComponent
+          },
+        ]
+        ,
+      },
+      {
+        path: "category",
+        children: [
+          {
+            path: "list",
+            component: CategoryListComponent
+          },
+          {
+            path: "form",
+            component: CatgoryFormComponent
+          },
+          {
+            path: "form/:id",
+            component: CatgoryFormComponent
           },
         ]
       }

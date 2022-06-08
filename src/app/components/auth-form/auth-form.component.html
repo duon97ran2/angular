@@ -1,14 +1,16 @@
 <mat-card>
   <mat-card-title class="text-uppercase">{{formType}}</mat-card-title>
   <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
-    <div class="form-group my-3">
-      <label for="email">Email</label>
-      <input id="email" class="form-control" type="text" formControlName="email">
-    </div>
-    <div class="form-group my-3">
-      <label for="password">Password</label>
-      <input id="password" class="form-control" type="password" formControlName="password">
-    </div>
-    <button class="btn btn-primary">{{formType}}</button>
+    <mat-form-field appearance="legacy">
+      <mat-label for="email">Email</mat-label>
+      <input matInput id="email" type="email" formControlName="email">
+    </mat-form-field>
+    <app-show-validate [field]="authForm.get('email')" title="Email"></app-show-validate>
+    <mat-form-field appearance="legacy">
+      <mat-label for="password">Password</mat-label>
+      <input matInput id="password" type="password" formControlName="password">
+    </mat-form-field>
+    <app-show-validate [field]="authForm.get('password')" title="Password"></app-show-validate>
+    <button class="btn btn-dark">{{formType}}</button>
   </form>
 </mat-card>

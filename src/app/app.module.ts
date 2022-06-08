@@ -7,9 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
-import { ChampsComponent } from './champs/champs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DamageComponent } from './damage/damage.component';
 import { TableAvatarComponent } from './table/table-avatar/table-avatar.component';
 import { TypographyComponent } from './typography/typography.component';
 import { FormComponent } from './form/form.component';
@@ -49,6 +47,10 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CatgoryFormComponent } from './admin/category/catgory-form/catgory-form.component';
+import { CategoryListComponent } from './admin/category/category-list/category-list.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { ProductPanelComponent } from './components/product-panel/product-panel.component';
 
 @NgModule({
   declarations: [
@@ -56,8 +58,6 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     AboutComponent,
     TableComponent,
-    ChampsComponent,
-    DamageComponent,
     TableAvatarComponent,
     TypographyComponent,
     FormComponent,
@@ -77,6 +77,10 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     RegisterComponent,
     AuthFormComponent,
+    CatgoryFormComponent,
+    CategoryListComponent,
+    CarouselComponent,
+    ProductPanelComponent,
   ],
   imports: [
     BrowserModule,

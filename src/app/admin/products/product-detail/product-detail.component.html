@@ -1,1 +1,15 @@
-<p>product-detail works!{{product._id}}/p>
+<div>
+  <h1>ID: {{product._id}}</h1>
+  <h1>Name: {{product.name}}</h1>
+  <h1>Price: {{product.price}}</h1>
+  <h1>NewPrice: {{product.newPrice}}</h1>
+  <form>
+    <mat-form-field>
+      <mat-label>
+        Số lượng
+      </mat-label>
+      <input type="number" (change)="onChangeCartValue($event)" [value]="cartValue" matInput>
+    </mat-form-field>
+    <button class="btn btn-dark" (click)="onAddToCart()">Add to cart</button>
+  </form>
+</div>

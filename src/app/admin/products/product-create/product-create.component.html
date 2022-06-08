@@ -1,30 +1,67 @@
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
   <h1>{{currentId?"Update":"Create new"}} product</h1>
   <mat-card>
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input id="name" matInput type="text" formControlName="name">
+    </mat-form-field>
+    <app-show-validate [field]="productForm.get('name')" title="Name"></app-show-validate>
+    <mat-form-field appearance="legacy">
+      <mat-label>Price</mat-label>
+      <input id="price" matInput type="number" step="1000" formControlName="price">
+    </mat-form-field>
+    <app-show-validate [field]="productForm.get('price')" title="Price"></app-show-validate>
+    <mat-form-field appearance="legacy">
+      <mat-label>New Price</mat-label>
+      <input id="newPrice" matInput type="number" step="1000" formControlName="newPrice">
+    </mat-form-field>
+    <app-show-validate [field]="productForm.get('newPrice')" title="New Price"></app-show-validate>
+    <mat-form-field appearance="legacy">
+      <mat-label>Stock</mat-label>
+      <input id="stock" matInput type="number" formControlName="stock">
+    </mat-form-field>
+    <app-show-validate [field]="productForm.get('stock')" title="Stock"></app-show-validate>
+    <mat-form-field appearance="legacy">
+      <mat-label>Select your category (required)</mat-label>
+      <mat-select formControlName="category" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let category of categoryList" [value]="category._id">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="productForm.get('category')?.hasError('required')">
+        This field is required
+      </mat-error> -->
+    </mat-form-field>
+    <app-show-validate [field]="productForm.get('category')" title="Category"></app-show-validate>
+    <mat-form-field appearance="legacy">
+      <mat-label>Author</mat-label>
+      <input id="author" matInput type="text" formControlName="author">
+    </mat-form-field>
+    <app-show-validate [field]="productForm.get('author')" title="Author"></app-show-validate>
+    <mat-form-field appearance="legacy">
+      <mat-label>description</mat-label>
+      <textarea id="description" matInput type="text" formControlName="description"></textarea>
+    </mat-form-field>
+
     <div class="form-group my-3">
-      <label for="name">Name</label>
-      <input id="name" class="form-control" type="text" formControlName="name">
+      <input id="upload" (change)="uploadHandle($event)" #file hidden class="form-control" type="file">
     </div>
-    <app-show-validate [field]="productForm.get('name')" title="name"></app-show-validate>
-    <div class="form-group my-3">
-      <label for="price">Price</label>
-      <input id="price" class="form-control" type="number" formControlName="price">
-    </div>
-    <button type="button" [disabled]="images.length==4" class="btn btn-outline-primary" (click)="file.click()">
-      Upload Image
-    </button>
     <mat-grid-list cols="4" class="relative" *ngIf="images.length!=0">
       <mat-grid-tile *ngFor="let image of images">
         <img [src]="image" width="100%" alt="">
         <button mat-mini-fab (click)="removeImage(image)"><i class="fa fa-close fa-lg" aria-hidden="true"></i></button>
       </mat-grid-tile>
     </mat-grid-list>
-    <div class="form-group my-3">
-      <input id="upload" (change)="uploadHandle($event)" #file hidden class="form-control" type="file">
-    </div>
+    <mat-progress-bar *ngIf="upload.progress" mode="indeterminate" class="my-3 h-2" [value]="upload.progress">
+    </mat-progress-bar>
+    <button type="button" class="my-3" [disabled]="images.length==4" mat-stroked-button color="primary"
+      (click)="file.click()">
+      Upload Image
+    </button>
     <div class="my-3">
-      <button type="submit" [disabled]="!productForm.valid&&images.length==0"
-        class="btn btn-primary">{{currentId?"Update":"Create"}}</button>
+      <button type="submit" [disabled]="!productForm.valid||images.length==0||upload.state"
+        class="btn btn-dark">{{currentId?"Update":"Create"}}</button>
     </div>
   </mat-card>
 </form>

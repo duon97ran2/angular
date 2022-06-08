@@ -10,3 +10,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+table {
+  width: 100%;
+}
+
+.bg-theme {
+  background-color: #3F51B5;
+}

@@ -1,20 +1,42 @@
 <a routerLink="/">
-  <mat-card class="bg-primary text-white fw-semibold text-uppercase rounded-0 ps-4"><i class="fas fa-home"
+  <mat-card class="bg-dark text-white fw-semibold text-uppercase rounded-0 ps-4"><i class="fas fa-home"
       aria-hidden="true">
     </i> Homepage</mat-card>
 </a>
 <mat-accordion>
   <mat-expansion-panel class="rounded-0 ">
-    <mat-expansion-panel-header class="bg-primary text-white fw-semibold text-uppercase"> <span><i
-          class="fas fa-archive" aria-hidden="true"></i> Product
-        management</span>
+    <mat-expansion-panel-header class="bg-dark text-white fw-semibold text-uppercase"> <span><i class="fas fa-book"
+          aria-hidden="true"></i> Product
+      </span>
     </mat-expansion-panel-header>
     <mat-selection-list [multiple]="false">
       <mat-list-option>
-        <a routerLink="/admin/products/list"><i class="fas fa-list-alt"></i> Product list</a>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/products/list"><i
+            class="fas fa-list-alt"></i> Product
+          list</a>
       </mat-list-option>
       <mat-list-option>
-        <a routerLink="/admin/products/form"><i class="fas fa-plus-circle"></i> Create new product</a>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/products/form"><i
+            class="fas fa-plus-circle"></i> Create new
+          product</a>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="rounded-0 ">
+    <mat-expansion-panel-header class="bg-dark text-white fw-semibold text-uppercase"> <span><i class="fas fa-bookmark"
+          aria-hidden="true"></i> Category
+      </span>
+    </mat-expansion-panel-header>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/category/list"><i
+            class="fas fa-list-alt"></i> Category
+          list</a>
+      </mat-list-option>
+      <mat-list-option>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/category/form"><i
+            class="fas fa-plus-circle"></i> Create new
+          category</a>
       </mat-list-option>
     </mat-selection-list>
   </mat-expansion-panel>

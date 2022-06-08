@@ -1,12 +1,16 @@
-<span *ngIf="field.errors?.['minlength']&&(field.dirty||field.touched)" class="text-danger">{{title}} must have
-  at least {{field.errors?.['minlength'].requiredLength}} characters </span>
-<span *ngIf="field.errors?.['maxLength']&&(field.dirty||field.touched)" class="text-danger">{{title}} can only have
-  {{field.errors?.['maxLength'].requiredLength}} characters </span>
-<span *ngIf="field.errors?.['required']&&(field.dirty||field.touched)" class="text-danger">{{title}} is
-  required</span>
-<span *ngIf="field.errors?.['hasProductError']&&(field.dirty||field.touched)" class="text-danger">{{title}} must have
-  "Product"</span>
-<span *ngIf="field.errors?.['min']&&(field.dirty||field.touched)" class="text-danger">{{title}} minimum
-  is {{field.errors?.['min'].min}}</span>
-<span *ngIf="field.errors?.['max']&&(field.dirty||field.touched)" class="text-danger">{{title}} maximum
-  is {{field.errors?.['max'].max}}</span>
+<mat-error *ngIf="field.errors?.['minlength']&&(field.dirty||field.touched)" class="text-danger">{{title}} must have
+  at least {{field.errors?.['minlength'].requiredLength}} characters </mat-error>
+<mat-error *ngIf="(field.dirty || field.touched) && field.errors?.['maxlength']" class="text-danger">{{title}} can only
+  have
+  {{field.errors?.['maxlength'].requiredLength}} characters </mat-error>
+<mat-error *ngIf="field.errors?.['required']&&(field.dirty||field.touched)" class="text-danger">{{title}} is
+  required</mat-error>
+<mat-error *ngIf="field.errors?.['email']&&(field.dirty||field.touched)" class="text-danger">{{title}} is
+  not a valid email</mat-error>
+<mat-error *ngIf="field.errors?.['hasProductError']&&(field.dirty||field.touched)" class="text-danger">{{title}} must
+  have
+  "Product"</mat-error>
+<mat-error *ngIf="field.errors?.['min']&&(field.dirty||field.touched)" class="text-danger">{{title}} minimum
+  is {{field.errors?.['min'].min}}</mat-error>
+<mat-error *ngIf="field.errors?.['max']&&(field.dirty||field.touched)" class="text-danger">{{title}} maximum
+  is {{field.errors?.['max'].max}}</mat-error>

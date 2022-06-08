@@ -11,6 +11,8 @@ export const environment = {
   image: `${apiURL}/upload`,
   login: `${apiURL}/login`,
   register: `${apiURL}/register`,
+  category: `${apiURL}/category`,
+  users: `${apiURL}/users`,
 };
 
 /*

@@ -17,43 +17,37 @@
           </li>
         </ul>
       </div>
-      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
-        <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.webp" height="20" alt="" loading="lazy"
-          style="margin-top: 2px;" />
+      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" RouterLink="/">
+        <img src="../../../assets/images/file (1).svg" width="120px" alt="" loading="lazy" style="margin-top: 2px;" />
       </a>
 
       <!-- Search form -->
-      <form class="input-group w-auto my-auto d-none d-sm-flex">
-        <input autocomplete="off" type="search" class="form-control rounded" placeholder="Search"
-          style="min-width: 125px;" />
-        <span class="input-group-text border-0 d-none d-lg-flex"><i class="fas fa-search"></i></span>
-      </form>
+
     </div>
     <!-- Left elements -->
 
     <!-- Center elements -->
-    <ul class="navbar-nav flex-row d-none d-md-flex">
-      <li class="nav-item fw-bold me-3 me-lg-4 active">
-        <a routerLink="/">Home</a>
-      </li>
+    <form class="input-group w-auto my-auto d-none d-sm-flex">
+      <input autocomplete="off" type="search" class="form-control rounded" placeholder="Search"
+        style="min-width: 125px;" />
+      <button class="btn btn-dark"><i class="fas fa-search"></i></button>
+    </form>
 
-
-    </ul>
     <!-- Center elements -->
 
     <!-- Right elements -->
     <div *ngIf="!loggedInUser" class="nav-item me-3 me-lg-1 active">
 
       <a routerLink="/register">
-        <button class="btn btn-outline-primary me-2" type="button">Register</button>
+        <button class="btn btn-outline-dark me-2" type="button">Register</button>
       </a>
       <a routerLink="/login">
-        <button class="btn btn-primary me-2" type="button">Login</button>
+        <button class="btn btn-dark me-2" type="button">Login</button>
       </a>
     </div>
     <ul class="navbar-nav flex-row" *ngIf="loggedInUser">
       <li class="nav-item me-3 me-lg-1 active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" RouterLink="/">
           <i class="fas fa-shopping-cart fa-lg"></i>
           <span class="badge rounded-pill badge-notification bg-danger">1</span>
         </a>
@@ -61,13 +55,18 @@
 
 
       <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " href="#"
+        <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " RouterLink="/"
           id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
           <img src="https://mdbootstrap.com/img/new/avatars/1.webp" class="rounded-circle" height="22" alt=""
             loading="lazy" />
           <strong class="d-none d-sm-block ms-1">{{userData.email}}</strong>
         </a>
         <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <a routerLink="/profile">
+            <li class="dropdown-item">
+              Profile
+            </li>
+          </a>
           <a routerLink="/admin">
             <li class="dropdown-item">
               Admin
@@ -77,13 +76,10 @@
             <li class="dropdown-item">Log Out
             </li>
           </a>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
         </ul>
       </li>
     </ul>
-    <!-- <a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+    <!-- <a class="nav-link dropdown-toggle hidden-arrow" RouterLink="/" id="navbarDropdownMenuLink" role="button"
           mdbDropdownToggle aria-expanded="false">
           <i class="fas fa-comments fa-lg"></i>
 
@@ -91,5 +87,56 @@
         </a> -->
     <!-- Right elements -->
   </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarCenteredExample"
+      aria-controls="navbarCenteredExample" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
+      <!-- Left links -->
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item mx-3 fw-bold">
+          <a class="nav-link active" aria-current="page" RouterLink="/">Trang chủ</a>
+        </li>
+        <li class="nav-item mx-3 fw-bold">
+          <a class="nav-link" RouterLink="/">Giới thiệu</a>
+        </li>
+        <li class="nav-item mx-3 fw-bold">
+          <a class="nav-link" RouterLink="/">Sản phẩm</a>
+        </li>
+        <!-- Navbar dropdown -->
+        <li mdbDropdown class="nav-item mx-3 fw-bold dropdown  me-lg-1">
+          <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " RouterLink="/"
+            id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
+            Danh mục
+          </a>
+          <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdownMenuLink">
+            <a routerLink="/admin">
+              <li class="dropdown-item">
+                Admin
+              </li>
+            </a>
+            <a (click)="logOutHandle()">
+              <li class="dropdown-item">Log Out
+              </li>
+            </a>
+            <li>
+              <a class="dropdown-item" RouterLink="/">Something else here</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->

@@ -2,3 +2,11 @@ mat-card {
   width: 30vw;
   margin: 30vh auto;
 }
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  margin: 20px 0px;
+}

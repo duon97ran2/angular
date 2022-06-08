@@ -37,17 +37,21 @@ export class AuthFormComponent implements OnInit {
   }
   onSubmit() {
     if (this.formType == "login") {
-      this.authService.login(this.authForm.value).subscribe(data => {
-        localStorage.setItem("loggedInUser", JSON.stringify(data));
-        this.toastr.success("Login success")
-        this.router.navigateByUrl('/');
-      })
+      this.authService.login(this.authForm.value).subscribe(
+        data => {
+          localStorage.setItem("loggedInUser", JSON.stringify(data));
+          this.toastr.success("Login success")
+          this.router.navigateByUrl('/');
+        },
+        error => this.toastr.error(error)
+      )
     }
     if (this.formType == "register") {
       this.authService.register(this.authForm.value).subscribe(data => {
         this.toastr.success("Register success")
         this.router.navigateByUrl('/login');
-      })
+      },
+        error => this.toastr.error(error))
     }
   }
 

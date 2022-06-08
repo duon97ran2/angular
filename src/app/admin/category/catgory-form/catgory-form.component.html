@@ -1,0 +1,13 @@
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+  <h1>{{currentId?"Update":"Create"}} category </h1>
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name">
+    </mat-form-field>
+    <div class="my-3">
+      <button type="submit" [disabled]="!categoryForm.valid"
+        class="btn btn-dark">{{currentId?"Update":"Create"}}</button>
+    </div>
+  </mat-card>
+</form>

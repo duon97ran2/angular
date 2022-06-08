@@ -4,14 +4,12 @@
     <label for="username">Username</label>
     <input id="username" class="form-control" ngModel #username="ngModel" type="text" name="username" required
       minlength="6" [(ngModel)]="inputValues.username" maxlength="20">
-    <!-- <span>{{username.errors|json}}</span> -->
     <app-show-validate [field]="username"></app-show-validate>
   </div>
   <div class="form-group">
     <label for="age">Age</label>
     <input id="age" class="form-control" ngModel #age="ngModel" [(ngModel)]="inputValues.age" type="number" name="age"
       required min="1" max="100">
-    <!-- <span>{{age.errors|json}}</span> -->
     <app-show-validate [field]="age"></app-show-validate>
 
   </div>
@@ -19,7 +17,6 @@
     <label for="email">Email</label>
     <input id="email" class="form-control" ngModel #email="ngModel" type="text" [(ngModel)]="inputValues.email"
       name="email" required>
-    <!-- <span>{{age.errors|json}}</span> -->
     <app-show-validate [field]="email"></app-show-validate>
   </div>
   <div class="form-group">

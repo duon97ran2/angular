@@ -13,11 +13,10 @@ export class CanAccessAdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const loggedInUser = localStorage.getItem("loggedInUser");
-    if (loggedInUser) {
-      return true;
-    }
-    this.router.navigateByUrl("/login");
-    return false;
+    if (!loggedInUser) return this.router.navigateByUrl("/login")
+    const userData = JSON.parse(loggedInUser);
+    if (!userData.role) return this.router.navigateByUrl("/");
+    return true
   }
 
 }

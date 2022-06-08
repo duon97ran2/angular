@@ -1,3 +1,11 @@
 /deep/ mat-expansion-panel .mat-expansion-panel-body {
   padding: 0;
 }
+
+i {
+  margin: 0px 10px;
+}
+
+/deep/.mat-expansion-indicator::after {
+  color: white
+}
