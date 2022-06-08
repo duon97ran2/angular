@@ -10,11 +10,23 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
 import { RegisterComponent } from './auth/register/register.component';
 import { CatgoryFormComponent } from './admin/category/catgory-form/catgory-form.component';
 import { CategoryListComponent } from './admin/category/category-list/category-list.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
     path: "",
     component: ClientLayoutComponent,
+    children: [
+      {
+        path: "",
+        component: HomeComponent
+      },
+      {
+        path: "about",
+        component: AboutComponent
+      },
+    ]
   },
   {
     path: "login",

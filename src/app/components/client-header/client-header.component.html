@@ -13,11 +13,14 @@
         </a>
         <ul mdbDropdownMenu class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
           <li>
-            <a class="dropdown-item" routerLink="/">Home</a>
+            <a class="dropdown-item" routerLink="/">Trang chủ</a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/about">Giới thiệu</a>
           </li>
         </ul>
       </div>
-      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" RouterLink="/">
+      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="/">
         <img src="../../../assets/images/file (1).svg" width="120px" alt="" loading="lazy" style="margin-top: 2px;" />
       </a>
 
@@ -47,15 +50,15 @@
     </div>
     <ul class="navbar-nav flex-row" *ngIf="loggedInUser">
       <li class="nav-item me-3 me-lg-1 active">
-        <a class="nav-link" RouterLink="/">
+        <a class="nav-link" routerLink="/">
           <i class="fas fa-shopping-cart fa-lg"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          <span class="badge rounded-pill badge-notification bg-danger">{{cartQuantity}}</span>
         </a>
       </li>
 
 
       <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " RouterLink="/"
+        <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " routerLink="/"
           id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
           <img src="https://mdbootstrap.com/img/new/avatars/1.webp" class="rounded-circle" height="22" alt=""
             loading="lazy" />
@@ -79,7 +82,7 @@
         </ul>
       </li>
     </ul>
-    <!-- <a class="nav-link dropdown-toggle hidden-arrow" RouterLink="/" id="navbarDropdownMenuLink" role="button"
+    <!-- <a class="nav-link dropdown-toggle hidden-arrow" routerLink="/" id="navbarDropdownMenuLink" role="button"
           mdbDropdownToggle aria-expanded="false">
           <i class="fas fa-comments fa-lg"></i>
 
@@ -102,18 +105,22 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
       <!-- Left links -->
       <ul class="navbar-nav mb-2 mb-lg-0">
+        <a class="nav-link active" routerLink="/">
+          <li class="nav-item mx-3 fw-bold">
+            Trang chủ
+          </li>
+        </a>
+        <a class="nav-link" routerLink="/about">
+          <li class="nav-item mx-3 fw-bold">
+            Giới thiệu
+          </li>
+        </a>
         <li class="nav-item mx-3 fw-bold">
-          <a class="nav-link active" aria-current="page" RouterLink="/">Trang chủ</a>
-        </li>
-        <li class="nav-item mx-3 fw-bold">
-          <a class="nav-link" RouterLink="/">Giới thiệu</a>
-        </li>
-        <li class="nav-item mx-3 fw-bold">
-          <a class="nav-link" RouterLink="/">Sản phẩm</a>
+          <a class="nav-link" routerLink="/">Sản phẩm</a>
         </li>
         <!-- Navbar dropdown -->
         <li mdbDropdown class="nav-item mx-3 fw-bold dropdown  me-lg-1">
-          <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " RouterLink="/"
+          <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " routerLink="/"
             id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
             Danh mục
           </a>
@@ -128,7 +135,7 @@
               </li>
             </a>
             <li>
-              <a class="dropdown-item" RouterLink="/">Something else here</a>
+              <a class="dropdown-item" routerLink="/">Something else here</a>
             </li>
           </ul>
         </li>

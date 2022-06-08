@@ -2,6 +2,7 @@ import { ProductService } from './../../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, CartType } from 'src/app/type/product';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,7 +13,7 @@ export class ProductDetailComponent implements OnInit {
   id: string | null;
   product: Product;
   cartValue: number = 1;
-  constructor(private activeRoute: ActivatedRoute, private productService: ProductService) {
+  constructor(private activeRoute: ActivatedRoute, private productService: ProductService, private lsService: LocalStorageService) {
     this.id = "";
     this.product = { _id: "", name: "", price: 0, newPrice: 0, stock: 0, description: "", author: "", category: "", image: [] };
   }
@@ -30,19 +31,7 @@ export class ProductDetailComponent implements OnInit {
       quantity: +this.cartValue,
       totalPrice: +this.cartValue * (this.product.newPrice == 0 ? this.product.price : this.product.newPrice)
     };
-    const cartLocal = JSON.parse(localStorage.getItem("cart") || '[]');
-    console.log(cartItem, cartLocal);
-    const existItem = cartLocal.find((item: CartType) => item._id === cartItem._id);
-    if (existItem) {
-      existItem.quantity += cartItem.quantity;
-      existItem.totalPrice += cartItem.totalPrice;
-      cartLocal.totalCart += cartItem.totalPrice
-    }
-    else {
-      cartLocal.push(cartItem);
-      cartLocal.totalCart += cartItem.totalPrice;
-    }
-    localStorage.setItem("cart", JSON.stringify(cartLocal));
+    this.lsService.setItem(cartItem)
     this.cartValue = 1;
   }
 }

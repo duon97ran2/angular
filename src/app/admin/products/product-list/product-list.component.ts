@@ -10,7 +10,7 @@ import { Product } from 'src/app/type/product';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  displayedColumns: string[] = ['index', 'name', 'price', 'newPrice', 'stock', 'category', 'author', 'image', 'id'];
+  displayedColumns: string[] = ['index', 'name', 'category', 'price', 'newPrice', 'stock', 'image', 'id'];
   constructor(
     private ProductService: ProductService,
     private toarst: ToastrService

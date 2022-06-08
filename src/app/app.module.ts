@@ -51,6 +51,11 @@ import { CatgoryFormComponent } from './admin/category/catgory-form/catgory-form
 import { CategoryListComponent } from './admin/category/category-list/category-list.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProductPanelComponent } from './components/product-panel/product-panel.component';
+import { CartComponent } from './client/cart/cart.component';
+import localeVi from '@angular/common/locales/vi';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localeVi, 'vi-VN');
 
 @NgModule({
   declarations: [
@@ -81,6 +86,7 @@ import { ProductPanelComponent } from './components/product-panel/product-panel.
     CategoryListComponent,
     CarouselComponent,
     ProductPanelComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

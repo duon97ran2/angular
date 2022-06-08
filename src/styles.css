@@ -15,6 +15,18 @@ table {
   width: 100%;
 }
 
-.bg-theme {
-  background-color: #3F51B5;
+
+
+.bg-dark,
+.btn-dark {
+  background-color: #009063 !important;
+}
+
+.text-dark {
+  color: #009063 !important
+}
+
+.btn-outline-dark {
+  outline-color: #009063 !important;
+  border-color: #009063 !important;
 }

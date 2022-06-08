@@ -12,11 +12,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
 
-const MaterialComponents = [MatSidenavModule, MatToolbarModule, MatButtonModule, MatGridListModule, MatTooltipModule, MatExpansionModule, MatListModule, MatCardModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatProgressBarModule]
+const MaterialComponents = [MatSidenavModule, MatToolbarModule, MatButtonModule, MatGridListModule, MatTooltipModule, MatExpansionModule, MatListModule, MatCardModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatIconModule]
 
 @NgModule({
   exports: [MaterialComponents]

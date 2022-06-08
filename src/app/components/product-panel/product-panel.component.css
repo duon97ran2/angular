@@ -1,0 +1,20 @@
+.example-card {
+  max-width: 400px;
+}
+
+/deep/ mat-card img {
+  object-fit: scale-down;
+  /*this makes the image in src fit to the size specified below*/
+  /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 25vh;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+/deep/ mat-card-header .mat-card-header-text,
+mat-card-content {
+  margin: 0;
+}
