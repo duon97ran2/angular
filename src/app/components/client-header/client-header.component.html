@@ -20,7 +20,7 @@
           </li>
         </ul>
       </div>
-      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="/">
+      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="/home">
         <img src="../../../assets/images/file (1).svg" width="120px" alt="" loading="lazy" style="margin-top: 2px;" />
       </a>
 
@@ -105,38 +105,33 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
       <!-- Left links -->
       <ul class="navbar-nav mb-2 mb-lg-0">
-        <a class="nav-link active" routerLink="/">
+        <a class="nav-link" [routerLinkActive]="['active']" routerLink="/home">
           <li class="nav-item mx-3 fw-bold">
             Trang chủ
           </li>
         </a>
-        <a class="nav-link" routerLink="/about">
+        <a class="nav-link" [routerLinkActive]="['active']" routerLink="/about">
           <li class="nav-item mx-3 fw-bold">
             Giới thiệu
           </li>
         </a>
         <li class="nav-item mx-3 fw-bold">
-          <a class="nav-link" routerLink="/">Sản phẩm</a>
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/products">Sản phẩm</a>
         </li>
         <!-- Navbar dropdown -->
         <li mdbDropdown class="nav-item mx-3 fw-bold dropdown  me-lg-1">
-          <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " routerLink="/"
-            id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
+          <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{exact: true}" id="navbarDropdownMenuLink" role="button" mdbDropdownToggle
+            aria-expanded="false">
             Danh mục
           </a>
           <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdownMenuLink">
-            <a routerLink="/admin">
+            <a *ngFor="let category of categories" routerLink="/category/{{category._id}}">
               <li class="dropdown-item">
-                Admin
+                {{category.name}}
               </li>
             </a>
-            <a (click)="logOutHandle()">
-              <li class="dropdown-item">Log Out
-              </li>
-            </a>
-            <li>
-              <a class="dropdown-item" routerLink="/">Something else here</a>
-            </li>
+
           </ul>
         </li>
       </ul>

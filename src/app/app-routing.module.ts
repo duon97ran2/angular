@@ -1,3 +1,4 @@
+import { ProductPageComponent } from './client/product-page/product-page.component';
 import { CartComponent } from './client/cart/cart.component';
 import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
 import { LoginComponent } from './auth/login/login.component';
@@ -21,7 +22,7 @@ const routes: Routes = [
     component: ClientLayoutComponent,
     children: [
       {
-        path: "",
+        path: "home",
         component: HomeComponent
       },
       {
@@ -38,9 +39,18 @@ const routes: Routes = [
           {
             path: "detail/:id",
             component: DetailPageComponent
-          }
+          },
+          {
+            path: "",
+            component: ProductPageComponent
+          },
         ]
       },
+      {
+        path: "category/:id",
+        component: ProductPageComponent
+      },
+
     ]
   },
   {

@@ -1,6 +1,6 @@
 import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from './../../services/local-storage.service';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/type/product';
 
@@ -11,18 +11,18 @@ import { Product } from 'src/app/type/product';
 })
 export class ProductPanelComponent implements OnInit {
   // quantity: number = 1;
+  @Input() dataSource: any;
   screenHeight: number = 0;
   screenWidth: number = 0;
   cols: number = 4;
 
 
 
-  products: Product[] = [];
-  constructor(private ProductService: ProductService, private lsService: LocalStorageService, private toarst: ToastrService) {
+  constructor(private lsService: LocalStorageService, private toarst: ToastrService) {
   }
 
   ngOnInit(): void {
-    this.ProductService.getProduct().subscribe(data => this.products = data);
+
   }
   // increase() {
   //   this.quantity += 1;

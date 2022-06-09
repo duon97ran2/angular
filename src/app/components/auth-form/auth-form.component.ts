@@ -41,7 +41,7 @@ export class AuthFormComponent implements OnInit {
         data => {
           localStorage.setItem("loggedInUser", JSON.stringify(data));
           this.toastr.success("Login success")
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/home');
         },
         error => this.toastr.error(error)
       )
