@@ -1,0 +1,64 @@
+<mat-card class="my-3">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <ngb-carousel *ngIf="product.image">
+        <ng-template ngbSlide *ngFor="let image of product.image">
+          <div class="picsum-img-wrapper w-100">
+            <img class="d-block" src="{{image}}" alt="Random first slide">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <h1 class="text-uppercase fw-bold mb-0">{{product.name}}</h1>
+      <h1 class="text-muted mb-0">{{product.author}}</h1>
+      <div class="rate mb-2">
+        <i class="fas fa-star text-warning" aria-hidden="true"></i>
+        <i class="fas fa-star text-warning" aria-hidden="true"></i>
+        <i class="fas fa-star text-warning" aria-hidden="true"></i>
+        <i class="fas fa-star text-warning" aria-hidden="true"></i>
+        <i class="fas fa-star text-warning" aria-hidden="true"></i>
+      </div>
+      <div class="d-flex align-items-center">
+        <h3 class="me-3">Lượt mua: 2123</h3>
+        <h3>Lượt xem: 123123</h3>
+      </div>
+      <h3>Nội dung: {{product.description}}</h3>
+      <h3>Số lượng: {{product.stock}}</h3>
+      <h3>Trạng thái: <strong class="text-dark"> Còn hàng</strong></h3>
+      <hr>
+      <h2>Giá: <strong class="mx-2 fs-5 text-danger">{{
+          (product.newPrice==0?product.price:product.newPrice)|
+          currency:
+          "đ":"symbol":"1.0-0":"vi-VN"
+          }}</strong>
+        <span *ngIf="product.newPrice!=0" class="text-decoration-line-through me-3">{{ product.price| currency:
+          "đ":"symbol":"1.0-0":"vi-VN"
+          }}
+
+        </span>
+        <span *ngIf="product.newPrice!=0" class="text-muted">(Tiết kiệm được {{product.price-product.newPrice| currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}})
+        </span>
+
+      </h2>
+      <hr>
+
+      <div class="quantity">
+        <button class="btn btn-dark" (click)="decrease()">
+          <i class="fa fa-minus" aria-hidden="true"></i>
+        </button>
+        <button class="btn mx-2 btn-outline-dark">{{quantity}}</button>
+        <input type="number" min="1" hidden #input (keyup)="inputChange(input.value)" [value]="quantity" autofocus />
+        <button class="btn btn-dark" (click)="increase()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+
+        <button class="btn btn-dark ms-3" (click)="onAddToCart(product)"><i class="fas fa-cart-plus me-1"
+            aria-hidden="true"></i> <span class="d-xl-inline d-none">THÊM VÀO GIỎ</span> </button>
+      </div>
+    </div>
+  </div>
+
+</mat-card>

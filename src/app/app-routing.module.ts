@@ -1,3 +1,4 @@
+import { CartComponent } from './client/cart/cart.component';
 import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { ProductDetailComponent } from './admin/products/product-detail/product-detail.component';
@@ -12,6 +13,7 @@ import { CatgoryFormComponent } from './admin/category/catgory-form/catgory-form
 import { CategoryListComponent } from './admin/category/category-list/category-list.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { DetailPageComponent } from './client/detail-page/detail-page.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,19 @@ const routes: Routes = [
       {
         path: "about",
         component: AboutComponent
+      },
+      {
+        path: "cart",
+        component: CartComponent
+      },
+      {
+        path: "products",
+        children: [
+          {
+            path: "detail/:id",
+            component: DetailPageComponent
+          }
+        ]
       },
     ]
   },

@@ -1,0 +1,10 @@
+.picsum-img-wrapper img {
+  height: 50vh;
+  object-fit: cover;
+  margin: auto;
+}
+
+/deep/ .carousel-control-prev-icon,
+/deep/ .carousel-control-next-icon {
+  color: green;
+}

@@ -1,5 +1,5 @@
-<mat-grid-list [cols]="cols" rowHeight="1:2" gutterSize="10px">
-  <mat-grid-tile *ngFor="let product of products">
+<div class="row">
+  <div class="col-md-4 col-xl-3 col-sm-6 my-3" *ngFor="let product of products">
     <mat-card class="example-card">
       <img mat-card-image src={{product.image[0]}}>
       <mat-card-header>
@@ -34,11 +34,13 @@
       <mat-card-actions class="m-0">
         <button class="btn btn-dark btn-sm me-2" (click)="onAddToCart(product)"><i class="fas fa-cart-plus me-1"
             aria-hidden="true"></i> <span class="d-xl-inline d-none">THÊM VÀO GIỎ</span> </button>
-        <button class="btn btn-dark btn-sm "><i class="fas fa-arrow-circle-right me-1" aria-hidden="true"></i><span
-            class="d-xl-inline d-none">CHI TIẾT</span>
-        </button>
+        <a routerLink="/products/detail/{{product._id}}"><button class="btn btn-dark btn-sm ">
+
+            <i class="fas fa-arrow-circle-right me-1" aria-hidden="true"></i><span class="d-xl-inline d-none">CHI
+              TIẾT</span>
+          </button>
+        </a>
       </mat-card-actions>
     </mat-card>
-  </mat-grid-tile>
-
-</mat-grid-list>
+  </div>
+</div>

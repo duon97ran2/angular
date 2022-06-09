@@ -1,6 +1,6 @@
+import { CartType } from './../type/product';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { CartType } from '../type/product';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +18,17 @@ export class LocalStorageService {
     const existItem = cartLocal.find((item: CartType) => item._id === addItem._id);
     if (existItem) {
       existItem.quantity += addItem.quantity;
-      existItem.totalPrice += addItem.totalPrice;
-      cartLocal.totalCart += addItem.totalPrice;
+      // existItem.totalPrice += addItem.totalPrice;
+      // cartLocal.totalCart += addItem.totalPrice;
     }
     else {
       cartLocal.push(addItem);
-      cartLocal.totalCart += addItem.totalPrice;
+      // cartLocal.totalCart += addItem.totalPrice;
     }
-    localStorage.setItem("cart", JSON.stringify(cartLocal));
+    this.setCart(cartLocal);
+  }
+  setCart(cartData: CartType[]) {
+    localStorage.setItem("cart", JSON.stringify(cartData));
     this.storageSubject.next('');
   }
   getItem() {

@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
@@ -16,26 +17,12 @@ export class ProductPanelComponent implements OnInit {
 
 
 
-  @HostListener('window:resize', ['$event'])
-  getScreenSize() {
-    this.screenHeight = window.innerHeight;
-    this.screenWidth = window.innerWidth;
-    console.log(this.screenHeight, this.screenWidth);
-    if (this.screenWidth > 1000) {
-      this.cols = 4
-    } else if (this.screenWidth > 750) {
-      this.cols = 3
-    } else {
-      this.cols = 2
-    }
-  }
   products: Product[] = [];
-  constructor(private ProductService: ProductService, private lsService: LocalStorageService) {
+  constructor(private ProductService: ProductService, private lsService: LocalStorageService, private toarst: ToastrService) {
   }
 
   ngOnInit(): void {
     this.ProductService.getProduct().subscribe(data => this.products = data);
-    this.getScreenSize();
   }
   // increase() {
   //   this.quantity += 1;
@@ -56,6 +43,7 @@ export class ProductPanelComponent implements OnInit {
       totalPrice: (product.newPrice == 0 ? product.price : product.newPrice)
     };
     this.lsService.setItem(cartItem);
+    this.toarst.success("Thêm sản phẩm vào giỏ thành công");
     // this.quantity = 1;
   }
 

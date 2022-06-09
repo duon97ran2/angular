@@ -54,6 +54,7 @@ import { ProductPanelComponent } from './components/product-panel/product-panel.
 import { CartComponent } from './client/cart/cart.component';
 import localeVi from '@angular/common/locales/vi';
 import { registerLocaleData } from '@angular/common';
+import { DetailPageComponent } from './client/detail-page/detail-page.component';
 
 registerLocaleData(localeVi, 'vi-VN');
 
@@ -87,6 +88,7 @@ registerLocaleData(localeVi, 'vi-VN');
     CarouselComponent,
     ProductPanelComponent,
     CartComponent,
+    DetailPageComponent,
   ],
   imports: [
     BrowserModule,
