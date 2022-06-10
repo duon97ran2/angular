@@ -39,7 +39,7 @@
     <!-- Center elements -->
 
     <!-- Right elements -->
-    <div *ngIf="!loggedInUser" class="nav-item me-3 me-lg-1 active">
+    <div *ngIf="!userData" class="nav-item me-3 me-lg-1 active">
 
       <a routerLink="/register">
         <button class="btn btn-outline-dark me-2" type="button">Register</button>
@@ -48,7 +48,7 @@
         <button class="btn btn-dark me-2" type="button">Login</button>
       </a>
     </div>
-    <ul class="navbar-nav flex-row" *ngIf="loggedInUser">
+    <ul class="navbar-nav flex-row" *ngIf="userData">
       <li class="nav-item me-3 me-lg-1 active">
         <a class="nav-link" routerLink="/cart">
           <i class="fas fa-shopping-cart fa-lg"></i>

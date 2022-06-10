@@ -1,3 +1,5 @@
+import { response } from 'express';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoryResponse } from './../../type/category';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
@@ -12,27 +14,25 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./client-header.component.css']
 })
 export class ClientHeaderComponent implements OnInit {
-  loggedInUser: string | null = localStorage.getItem("loggedInUser");
-  userData: LoginResponse = { _id: "", email: '' };
+  userData: LoginResponse | null;
   cartQuantity: number = 0;
   categories: CategoryResponse[] = []
-  constructor(private router: Router, private toastr: ToastrService, private lsService: LocalStorageService, private categoryService: CategoryService) { }
+  constructor(private router: Router, private toastr: ToastrService, private lsService: LocalStorageService, private categoryService: CategoryService, private authService: AuthService) {
+    this.userData = null;
+  }
 
   ngOnInit(): void {
     this.onGetQuantity();
-    this.lsService.watchStorage().subscribe(data => this.onGetQuantity());
-    if (this.loggedInUser) {
-      this.userData = JSON.parse(this.loggedInUser);
-    };
+    this.lsService.watchStorage().subscribe(data => { this.onGetQuantity() });
+    this.authService.currentUser.subscribe((response) => this.userData = response);
     this.categoryService.getCategory().subscribe(data => this.categories = data);
   }
   onGetQuantity() {
     this.cartQuantity = this.lsService.getItem().length;
   }
   logOutHandle() {
-    localStorage.removeItem("loggedInUser");
-    window.location.reload();
-    this.toastr.success('Logout success');
+    this.authService.logOut();
+    this.toastr.success("Đăng xuất thành công")
   }
 
 }

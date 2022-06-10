@@ -56,6 +56,8 @@ export class ProductCreateComponent implements OnInit {
             Validators.min(1),
             // this.onVidateNameHasProduct
           ]),
+        status: new UntypedFormControl(0,
+        ),
         author: new UntypedFormControl("",
           [
             Validators.required,
@@ -85,6 +87,7 @@ export class ProductCreateComponent implements OnInit {
           category: data.category,
           author: data.author,
           description: data.description,
+          status: data.status,
         }
       )
     })

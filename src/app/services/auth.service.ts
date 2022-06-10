@@ -1,14 +1,17 @@
 import { LoginResponse } from './../type/auth';
-import { catchError, Observable, retry, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, retry, tap, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginType } from '../type/auth';
 import { environment } from 'src/environments/environment';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private userSubject: BehaviorSubject<LoginResponse | null>;
+  currentUser: Observable<LoginResponse | null>
   private handleError(error: HttpErrorResponse) {
     // if (error.status === 0) {
     //   // A client-side or network error occurred. Handle it accordingly.
@@ -22,11 +25,22 @@ export class AuthService {
     // Return an observable with a user-facing error message.
     return throwError(() => new Error(error.error));
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.userSubject = new BehaviorSubject<LoginResponse | null>(JSON.parse(localStorage.getItem('loggedInUser')!));
+    this.currentUser = this.userSubject.asObservable();
+  }
   login(dataLogin: LoginType): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${environment.login}`, dataLogin).pipe(catchError(this.handleError));
+    return this.http.post<LoginResponse>(`${environment.login}`, dataLogin).pipe(catchError(this.handleError), tap(response => {
+      localStorage.setItem('loggedInUser', JSON.stringify(response),);
+      this.userSubject.next(response);
+    }));
   };
   register(dataRegister: LoginType): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${environment.register}`, dataRegister).pipe(catchError(this.handleError));
+  };
+  logOut() {
+    localStorage.removeItem("loggedInUser");
+    this.userSubject.next(null);
+    this.currentUser = this.userSubject.asObservable();
   }
 }

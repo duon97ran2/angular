@@ -16,7 +16,7 @@ export class DetailPageComponent implements OnInit {
   product: Product;
   constructor(private activeRoute: ActivatedRoute, private productService: ProductService, private lsService: LocalStorageService, private toarst: ToastrService) {
     this.id = "";
-    this.product = { _id: "", name: "", price: 0, newPrice: 0, stock: 0, description: "", author: "", category: "", image: [] };
+    this.product = { _id: "", name: "", price: 0, newPrice: 0, stock: 0, description: "", author: "", category: "", image: [], status: 0 };
   }
 
   ngOnInit(): void {

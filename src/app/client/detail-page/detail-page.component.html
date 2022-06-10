@@ -26,7 +26,8 @@
       </div>
       <h3>Nội dung: {{product.description}}</h3>
       <h3>Số lượng: {{product.stock}}</h3>
-      <h3>Trạng thái: <strong class="text-dark"> Còn hàng</strong></h3>
+      <h3>Trạng thái: <strong class="{{product.status==0?'text-dark': 'text-danger'}}"> {{product.status==0?"Còn hàng":
+          "Hết hàng"}}</strong></h3>
       <hr>
       <h2>Giá: <strong class="mx-2 fs-5 text-danger">{{
           (product.newPrice==0?product.price:product.newPrice)|

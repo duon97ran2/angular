@@ -1,6 +1,7 @@
 import { CartType } from './../type/product';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
+import { LoginResponse } from '../type/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -34,4 +35,16 @@ export class LocalStorageService {
   getItem() {
     return JSON.parse(localStorage.getItem("cart") || '[]');
   }
+  // getUser() {
+  //   return JSON.parse(localStorage.getItem("loggedInUser") || '[]');
+  // }
+  // setUser(userData: LoginResponse) {
+  //   localStorage.setItem("loggedInUser", JSON.stringify(userData));
+  //   this.storageSubject.next('');
+  // }
+  // removeUser() {
+  //   localStorage.removeItem("loggedInUser");
+  //   this.storageSubject.next('');
+  // }
+
 }

@@ -33,6 +33,16 @@
         This field is required
       </mat-error> -->
     </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Select product status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="0">Còn hàng</mat-option>
+        <mat-option value="1">Hết hàng</mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="productForm.get('category')?.hasError('required')">
+        This field is required
+      </mat-error> -->
+    </mat-form-field>
     <app-show-validate [field]="productForm.get('category')" title="Category"></app-show-validate>
     <mat-form-field appearance="legacy">
       <mat-label>Author</mat-label>

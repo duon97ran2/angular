@@ -22,6 +22,11 @@ const routes: Routes = [
     component: ClientLayoutComponent,
     children: [
       {
+        path: "",
+        redirectTo: "home",
+        pathMatch: 'full'
+      },
+      {
         path: "home",
         component: HomeComponent
       },
@@ -50,17 +55,17 @@ const routes: Routes = [
         path: "category/:id",
         component: ProductPageComponent
       },
-
+      {
+        path: "login",
+        component: LoginComponent,
+      },
+      {
+        path: "register",
+        component: RegisterComponent,
+      },
     ]
   },
-  {
-    path: "login",
-    component: LoginComponent,
-  },
-  {
-    path: "register",
-    component: RegisterComponent,
-  },
+
   {
     path: "admin",
     component: AdminLayoutComponent,

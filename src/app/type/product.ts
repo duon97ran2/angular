@@ -8,6 +8,7 @@ export type Product = {
   category: string,
   description: string,
   author: string,
+  status: number
 }
 export type createType = {
   name: string,
