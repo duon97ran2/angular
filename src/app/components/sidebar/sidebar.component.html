@@ -40,6 +40,24 @@
       </mat-list-option>
     </mat-selection-list>
   </mat-expansion-panel>
+  <mat-expansion-panel class="rounded-0 ">
+    <mat-expansion-panel-header class="bg-dark text-white fw-semibold text-uppercase"> <span><i class="fas fa-user"
+          aria-hidden="true"></i> Users
+      </span>
+    </mat-expansion-panel-header>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/users/list"><i class="fas fa-list-alt"></i>
+          User
+          list</a>
+      </mat-list-option>
+      <mat-list-option>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/users/form"><i
+            class="fas fa-plus-circle"></i> Create new
+          user</a>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-expansion-panel>
 </mat-accordion>
 <mat-card role="button" class="bg-dark text-white fw-semibold text-uppercase rounded-0 ps-4" (click)="signOut()"><i
     class="fas fa-sign-out" aria-hidden="true"></i> Logout

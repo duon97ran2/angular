@@ -58,6 +58,8 @@ import { DetailPageComponent } from './client/detail-page/detail-page.component'
 import { ProductPageComponent } from './client/product-page/product-page.component';
 import { StatusChangeComponent } from './components/status-change/status-change.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { ListUserComponent } from './admin/users/list-user/list-user.component';
+import { FormUserComponent } from './admin/users/form-user/form-user.component';
 
 registerLocaleData(localeVi, 'vi-VN');
 
@@ -95,6 +97,8 @@ registerLocaleData(localeVi, 'vi-VN');
     ProductPageComponent,
     StatusChangeComponent,
     ImageUploadComponent,
+    ListUserComponent,
+    FormUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,34 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <h1>{{currentId?"Update":"Create"}} category </h1>
+  <mat-card>
+    <mat-form-field *ngIf="!currentId">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email">
+    </mat-form-field>
+    <app-show-validate [field]="userForm.get('email')" title="Email"></app-show-validate>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input type="text" matInput formControlName="username">
+    </mat-form-field>
+    <mat-form-field *ngIf="!currentId">
+      <mat-label>Password</mat-label>
+      <input type="text" matInput formControlName="password">
+    </mat-form-field>
+    <app-show-validate [field]="userForm.get('password')" title="Password"></app-show-validate>
+    <mat-form-field appearance="legacy">
+      <mat-label>Select user role (required)</mat-label>
+      <mat-select formControlName="role" required>
+        <mat-option [value]="0">Member</mat-option>
+        <mat-option [value]="1">Admin</mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="productForm.get('category')?.hasError('required')">
+        This field is required
+      </mat-error> -->
+    </mat-form-field>
+    <app-image-upload [images]="avatar" limit="1" (imageHandle)="setAvatar($event)" (stateHandle)="setState($event)">
+    </app-image-upload>
+    <div class="my-3">
+      <button type="submit" [disabled]="uploadState" class="btn btn-dark">{{currentId?"Update":"Create"}}</button>
+    </div>
+  </mat-card>
+</form>

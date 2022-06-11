@@ -5,5 +5,6 @@ export type LoginType = {
 export type LoginResponse = {
   email: string,
   _id: string,
+  avatar: string[],
   username?: string
 }

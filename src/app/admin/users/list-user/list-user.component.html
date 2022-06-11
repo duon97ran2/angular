@@ -1,0 +1,44 @@
+<table mat-table class="mat-elevation-z8" [dataSource]="userData">
+  <ng-container matColumnDef="index">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element;let i =index"> {{i+1}} </td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}}</td>
+  </ng-container>
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}}</td>
+  </ng-container>
+  <ng-container matColumnDef="avatar">
+    <th mat-header-cell *matHeaderCellDef> Avatar </th>
+    <td mat-cell *matCellDef="let element"> <img [src]="element.avatar[0]" width="100px" alt=""></td>
+  </ng-container>
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> role </th>
+    <td mat-cell *matCellDef="let element"> {{!element.role?"member":"admin"}}</td>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> status </th>
+    <td mat-cell *matCellDef="let element">
+      <app-status-change [hidden]="currentUser?._id==element._id" [status]="element.status"
+        (click)="statusUpdate(element._id,element.status)">
+      </app-status-change>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <a routerLink="/admin/users/form/{{element._id}}">
+        <button class="btn btn-primary me-2" type="button" matTooltip="Edit" matTooltipPosition="above"><i
+            class="fas fa-edit fa-xl" aria-hidden="true"></i></button>
+      </a>
+      <button [hidden]="currentUser?._id==element._id" class="btn btn-danger" (click)="onDelete(element._id)"
+        type="button" matTooltip="Remove" matTooltipPosition="above"><i class="fas fa-remove fa-xl"
+          aria-hidden="true"></i></button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

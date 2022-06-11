@@ -1,3 +1,5 @@
+import { UserFormComponent } from './user/user-form/user-form.component';
+import { UserListComponent } from './user/user-list/user-list.component';
 import { ProductPageComponent } from './client/product-page/product-page.component';
 import { CartComponent } from './client/cart/cart.component';
 import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
@@ -15,6 +17,8 @@ import { CategoryListComponent } from './admin/category/category-list/category-l
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { DetailPageComponent } from './client/detail-page/detail-page.component';
+import { FormUserComponent } from './admin/users/form-user/form-user.component';
+import { ListUserComponent } from './admin/users/list-user/list-user.component';
 
 const routes: Routes = [
   {
@@ -92,6 +96,23 @@ const routes: Routes = [
           },
         ]
         ,
+      },
+      {
+        path: 'users',
+        children: [
+          {
+            path: "list",
+            component: ListUserComponent
+          },
+          {
+            path: "form",
+            component: FormUserComponent
+          },
+          {
+            path: "form/:id",
+            component: FormUserComponent
+          },
+        ]
       },
       {
         path: "category",

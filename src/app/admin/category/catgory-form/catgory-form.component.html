@@ -5,8 +5,10 @@
       <mat-label>Name</mat-label>
       <input type="text" matInput formControlName="name">
     </mat-form-field>
+    <app-image-upload [images]="thumbnail" limit="1" (imageHandle)="setThumbnail($event)"
+      (stateHandle)="setState($event)"></app-image-upload>
     <div class="my-3">
-      <button type="submit" [disabled]="!categoryForm.valid"
+      <button type="submit" [disabled]="!categoryForm.valid||uploadState"
         class="btn btn-dark">{{currentId?"Update":"Create"}}</button>
     </div>
   </mat-card>
