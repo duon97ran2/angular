@@ -18,7 +18,7 @@ export class ProductCreateComponent implements OnInit {
   currentId: string | null = '';
   images: string[] = [];
   categoryList: CategoryResponse[] = [];
-  upload: { progress: number, state: boolean } = { progress: 0, state: false }
+  upload: { state: boolean } = { state: false }
   constructor(
     private productSevive: ProductService,
     private router: Router,
@@ -97,34 +97,11 @@ export class ProductCreateComponent implements OnInit {
     if (!value.includes("product")) return { hasProductError: true };
     return null
   }
-  uploadHandle(event: any) {
-    console.log(event.target);
-    this.upload.state = true;
-    let fileList: FileList = event.target.files;
-    let file: File = fileList[0];
-    let formData: FormData = new FormData();
-    formData.append('image', file, file.name);
-    let headers = new Headers();
-    /** In Angular 5, including the header Content-Type can invalidate your request */
-    headers.append('Content-Type', 'multipart/form-data');
-    headers.append('Accept', 'application/json');
-    this.imageService.uploadImage(formData).subscribe({
-      next: (data: HttpEvent<any>) => {
-        if (data.type === HttpEventType.UploadProgress) {
-          this.upload.progress = Math.round(100 * data.loaded / (data.total ?? 1));
-        } else if (data instanceof HttpResponse) {
-          this.upload.state = false;
-          this.upload.progress = 0;
-          this.images.push(data.body);
-        }
-      },
-      error: (error: HttpErrorResponse) => {
-        alert(false);
-      }
-    })
+  setImage(data: string[]) {
+    this.images = data;
   }
-  removeImage(image: string) {
-    this.images = this.images.filter(item => item != image);
+  setState(state: boolean) {
+    this.upload.state = state;
   }
   onSubmit() {
     const data = this.productForm.value;

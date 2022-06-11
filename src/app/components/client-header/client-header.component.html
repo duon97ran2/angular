@@ -39,49 +39,52 @@
     <!-- Center elements -->
 
     <!-- Right elements -->
-    <div *ngIf="!userData" class="nav-item me-3 me-lg-1 active">
+    <div class="d-flex">
+      <a class="nav-link text-dark" routerLink="/cart">
+        <i class="fas fa-shopping-cart fa-xl"></i>
+        <span class="badge rounded-pill badge-notification bg-danger">{{cartQuantity}}</span>
+      </a>
+      <div *ngIf="!userData" class="nav-item me-3 me-lg-1 active">
 
-      <a routerLink="/register">
-        <button class="btn btn-outline-dark me-2" type="button">Register</button>
-      </a>
-      <a routerLink="/login">
-        <button class="btn btn-dark me-2" type="button">Login</button>
-      </a>
+        <a routerLink="/register">
+          <button class="btn btn-outline-dark me-2" type="button">Register</button>
+        </a>
+        <a routerLink="/login">
+          <button class="btn btn-dark me-2" type="button">Login</button>
+        </a>
+      </div>
+      <ul class="navbar-nav flex-row" *ngIf="userData">
+        <li class="nav-item me-3 me-lg-1 active">
+
+        </li>
+
+
+        <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
+          <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " routerLink="/"
+            id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
+            <img src="https://mdbootstrap.com/img/new/avatars/1.webp" class="rounded-circle" height="22" alt=""
+              loading="lazy" />
+            <strong class="d-none d-sm-block ms-1">{{userData.email}}</strong>
+          </a>
+          <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <a routerLink="/profile">
+              <li class="dropdown-item">
+                Profile
+              </li>
+            </a>
+            <a routerLink="/admin">
+              <li class="dropdown-item">
+                Admin
+              </li>
+            </a>
+            <a (click)="logOutHandle()">
+              <li class="dropdown-item">Log Out
+              </li>
+            </a>
+          </ul>
+        </li>
+      </ul>
     </div>
-    <ul class="navbar-nav flex-row" *ngIf="userData">
-      <li class="nav-item me-3 me-lg-1 active">
-        <a class="nav-link" routerLink="/cart">
-          <i class="fas fa-shopping-cart fa-lg"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">{{cartQuantity}}</span>
-        </a>
-      </li>
-
-
-      <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " routerLink="/"
-          id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
-          <img src="https://mdbootstrap.com/img/new/avatars/1.webp" class="rounded-circle" height="22" alt=""
-            loading="lazy" />
-          <strong class="d-none d-sm-block ms-1">{{userData.email}}</strong>
-        </a>
-        <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-          <a routerLink="/profile">
-            <li class="dropdown-item">
-              Profile
-            </li>
-          </a>
-          <a routerLink="/admin">
-            <li class="dropdown-item">
-              Admin
-            </li>
-          </a>
-          <a (click)="logOutHandle()">
-            <li class="dropdown-item">Log Out
-            </li>
-          </a>
-        </ul>
-      </li>
-    </ul>
     <!-- <a class="nav-link dropdown-toggle hidden-arrow" routerLink="/" id="navbarDropdownMenuLink" role="button"
           mdbDropdownToggle aria-expanded="false">
           <i class="fas fa-comments fa-lg"></i>

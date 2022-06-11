@@ -13,11 +13,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
 
-const MaterialComponents = [MatSidenavModule, MatToolbarModule, MatButtonModule, MatGridListModule, MatTooltipModule, MatExpansionModule, MatListModule, MatCardModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatIconModule]
+
+const MaterialComponents = [MatSidenavModule, MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatGridListModule, MatTooltipModule, MatExpansionModule, MatListModule, MatCardModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatIconModule]
 
 @NgModule({
   exports: [MaterialComponents]

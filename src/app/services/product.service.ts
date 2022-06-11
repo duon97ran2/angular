@@ -38,7 +38,7 @@ export class ProductService {
   getByCategory(id: string): Observable<any> {
     return this.http.get<any>(`${environment.products}/category/${id}`).pipe(catchError(this.handleError));
   };
-  updateProduct(id: string | null, product: createType): Observable<Product> {
+  updateProduct(id: string | null, product: any): Observable<Product> {
     return this.http.put<Product>(`${environment.products}/${id}`, product).pipe(catchError(this.handleError));
   }
 

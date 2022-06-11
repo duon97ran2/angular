@@ -32,8 +32,9 @@
         </p>
       </mat-card-content>
       <mat-card-actions class="m-0">
-        <button class="btn btn-dark btn-sm me-2" (click)="onAddToCart(product)"><i class="fas fa-cart-plus me-1"
-            aria-hidden="true"></i> <span class="d-xl-inline d-none">THÊM VÀO GIỎ</span> </button>
+        <button [disabled]="product.status" class="btn btn-dark btn-sm me-2" (click)="onAddToCart(product)"><i
+            class="fas fa-cart-plus me-1" aria-hidden="true"></i> <span class="d-xl-inline d-none">THÊM VÀO GIỎ</span>
+        </button>
         <a routerLink="/products/detail/{{product._id}}"><button class="btn btn-dark btn-sm ">
 
             <i class="fas fa-arrow-circle-right me-1" aria-hidden="true"></i><span class="d-xl-inline d-none">CHI

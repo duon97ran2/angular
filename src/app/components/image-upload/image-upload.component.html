@@ -1,0 +1,15 @@
+<div class="form-group my-3">
+  <input id="upload" (change)="uploadHandle($event)" #file hidden class="form-control" type="file">
+</div>
+<mat-grid-list cols="4" class="relative" *ngIf="images.length!=0">
+  <mat-grid-tile *ngFor="let image of images">
+    <img [src]="image" width="100%" alt="">
+    <button mat-mini-fab (click)="removeImage(image)"><i class="fa fa-close fa-lg" aria-hidden="true"></i></button>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-progress-bar *ngIf="upload.progress" mode="indeterminate" class="my-3 h-2" [value]="upload.progress">
+</mat-progress-bar>
+<button type="button" class="my-3" [disabled]="images.length==+limit" mat-stroked-button color="primary"
+  (click)="file.click()">
+  Upload Image
+</button>

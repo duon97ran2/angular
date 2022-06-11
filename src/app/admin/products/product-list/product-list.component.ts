@@ -10,7 +10,7 @@ import { Product } from 'src/app/type/product';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  displayedColumns: string[] = ['index', 'name', 'category', 'price', 'newPrice', 'stock', 'image', 'id'];
+  displayedColumns: string[] = ['index', 'name', 'category', 'price', 'newPrice', 'stock', 'status', 'image', 'id'];
   constructor(
     private ProductService: ProductService,
     private toarst: ToastrService
@@ -31,6 +31,13 @@ export class ProductListComponent implements OnInit {
   }
   onGetList() {
     this.ProductService.getProduct().subscribe(data => this.products = data)
+  }
+  statusChange(id: string, status: number) {
+    this.ProductService.updateProduct(id, { status: !status ? 1 : 0 }).subscribe(
+      data => {
+        this.toarst.success("Cập nhật trạng thái thành công");
+        this.onGetList();
+      })
   }
 
 }

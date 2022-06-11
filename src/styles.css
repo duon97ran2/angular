@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+:root {
+  --primary: #009063;
+}
 
 html,
 body {
@@ -20,14 +22,15 @@ table {
 
 .bg-dark,
 .btn-dark {
-  background-color: #009063 !important;
+  background-color: var(--primary) !important;
 }
 
 .text-dark {
-  color: #009063 !important
+  color: var(--primary) !important
 }
 
 .btn-outline-dark {
-  outline-color: #009063 !important;
-  border-color: #009063 !important;
+  outline-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
 }
