@@ -1,0 +1,12 @@
+.result img {
+  height: 5vh;
+  object-fit: scale-down;
+}
+
+.result {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  max-height: 300px;
+  overflow-y: auto;
+}

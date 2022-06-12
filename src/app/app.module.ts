@@ -64,6 +64,7 @@ import { FlashSaleComponent } from './components/flash-sale/flash-sale.component
 import { SwiperModule } from 'swiper/angular';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CateBooksComponent } from './components/cate-books/cate-books.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 
 
@@ -108,6 +109,7 @@ registerLocaleData(localeVi, 'vi-VN');
     FlashSaleComponent,
     ProductCardComponent,
     CateBooksComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,

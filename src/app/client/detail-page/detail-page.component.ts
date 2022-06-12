@@ -20,8 +20,13 @@ export class DetailPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.activeRoute.snapshot.paramMap.get("id");
-    this.productService.getProductDetail(this.id).subscribe(data => this.product = data);
+    this.activeRoute.paramMap.subscribe(params => {
+      this.id = params.get("id");
+      if (this.id) {
+        this.productService.getProductDetail(this.id).subscribe(data => this.product = data);
+      }
+    })
+
 
   }
   increase() {

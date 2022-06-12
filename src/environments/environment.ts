@@ -13,6 +13,7 @@ export const environment = {
   register: `${apiURL}/register`,
   category: `${apiURL}/category`,
   users: `${apiURL}/users`,
+  search: `${apiURL}/search`,
 };
 
 /*
