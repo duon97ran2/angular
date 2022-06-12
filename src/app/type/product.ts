@@ -11,6 +11,7 @@ export type Product = {
   status: number
 }
 export type createType = {
+  _id?: string,
   name: string,
   price: number,
   newPrice: number,

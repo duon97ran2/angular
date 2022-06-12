@@ -1,47 +1,5 @@
 <div class="row">
   <div class="col-md-4 col-xl-3 col-sm-6 my-3" *ngFor="let product of dataSource">
-    <mat-card class="example-card">
-      <img mat-card-image src={{product.image[0]}}>
-      <mat-card-header>
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title class="text-uppercase text-dark fw-bold mb-3">{{product.name}}</mat-card-title>
-        <mat-card-subtitle>Tác giả: {{product.author}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          Nội dung: {{product.description}}
-        </p>
-        <!-- <div class="quantity">
-          <button class="btn btn-dark" (click)="decrease($event)">
-            <i class="fa fa-minus" aria-hidden="true"></i>
-          </button>
-          <button class="btn mx-2 btn-outline-dark">{{quantity}}</button>
-          <input type="number" min="1" hidden #input (keyup)="inputChange(input.value)" [value]="quantity" autofocus />
-          <button class="btn btn-dark" (click)="increase($event)">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          </button>
-        </div> -->
-        <p class="my-3">Giá: <strong class="mx-2 fs-5 text-danger">{{
-            (product.newPrice==0?product.price:product.newPrice)|
-            currency:
-            "đ":"symbol":"1.0-0":"vi-VN"
-            }}</strong>
-          <span *ngIf="product.newPrice!=0" class="text-decoration-line-through">{{ product.price| currency:
-            "đ":"symbol":"1.0-0":"vi-VN"
-            }}</span>
-        </p>
-      </mat-card-content>
-      <mat-card-actions class="m-0">
-        <button [disabled]="product.status" class="btn btn-dark btn-sm me-2" (click)="onAddToCart(product)"><i
-            class="fas fa-cart-plus me-1" aria-hidden="true"></i> <span class="d-xl-inline d-none">THÊM VÀO GIỎ</span>
-        </button>
-        <a routerLink="/products/detail/{{product._id}}"><button class="btn btn-dark btn-sm ">
-
-            <i class="fas fa-arrow-circle-right me-1" aria-hidden="true"></i><span class="d-xl-inline d-none">CHI
-              TIẾT</span>
-          </button>
-        </a>
-      </mat-card-actions>
-    </mat-card>
+    <app-product-card [product]="product"></app-product-card>
   </div>
 </div>

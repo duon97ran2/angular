@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-center my-3">
+  <div class="mx-2 " *ngFor="let cate of categories ">
+    <button *ngIf="cate.status==0" class=" btn btn-outline-dark" (click)="getProduct(cate._id)">{{cate.name}}</button>
+  </div>
+</div>
+<app-flash-sale [dataSource]="products"></app-flash-sale>

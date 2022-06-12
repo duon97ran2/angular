@@ -12,13 +12,11 @@ import { Product } from 'src/app/type/product';
 export class ProductPanelComponent implements OnInit {
   // quantity: number = 1;
   @Input() dataSource: any;
-  screenHeight: number = 0;
-  screenWidth: number = 0;
-  cols: number = 4;
 
 
 
-  constructor(private lsService: LocalStorageService, private toarst: ToastrService) {
+
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -36,15 +34,6 @@ export class ProductPanelComponent implements OnInit {
   // inputChange(quantity: string) {
   //   this.quantity = +quantity;
   // }
-  onAddToCart(product: Product) {
-    const cartItem = {
-      ...product,
-      quantity: 1,
-      totalPrice: (product.newPrice == 0 ? product.price : product.newPrice)
-    };
-    this.lsService.setItem(cartItem);
-    this.toarst.success("Thêm sản phẩm vào giỏ thành công");
-    // this.quantity = 1;
-  }
+
 
 }

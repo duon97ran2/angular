@@ -1,5 +1,8 @@
 @use '@angular/material' as mat;
 @include mat.core();
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
 $primary-palette: (
   50 : #e9f0f1,
   100 : #c7d9dd,

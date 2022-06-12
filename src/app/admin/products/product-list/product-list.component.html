@@ -50,9 +50,11 @@
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let element">
       <a routerLink="/admin/products/form/{{element._id}}">
-        <button class="btn btn-primary me-2" type="button" matTooltip="Edit" matTooltipPosition="above"><i
+        <button class="btn btn-primary " type="button" matTooltip="Edit" matTooltipPosition="above"><i
             class="fas fa-edit fa-xl" aria-hidden="true"></i></button>
       </a>
+      <button class="btn btn-secondary mx-2" (click)="onDuplicate(element)" type="button" matTooltip="Duplicate"
+        matTooltipPosition="above"><i class="fas fa-copy fa-xl" aria-hidden="true"></i></button>
       <button class="btn btn-danger" (click)="onDelete(element._id)" type="button" matTooltip="Remove"
         matTooltipPosition="above"><i class="fas fa-remove fa-xl" aria-hidden="true"></i></button>
     </td>

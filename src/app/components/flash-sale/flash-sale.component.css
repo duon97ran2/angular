@@ -1,0 +1,43 @@
+/deep/ .swiper-button-prev,
+/deep/.swiper-button-next {
+  top: calc(100% - 20px);
+  background-color: var(--primary);
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+/deep/.swiper {
+  height: 100%;
+  user-select: none;
+  margin-bottom: 20px;
+}
+
+/deep/.swiper-slide {
+  margin: 50px 0px;
+}
+
+/deep/.swiper-button-prev::after,
+/deep/.swiper-button-next::after {
+  font-size: 15px;
+  font-weight: bold;
+  color: white
+}
+
+/deep/.swiper-button-prev {
+  left: calc(50% - 50px);
+
+}
+
+/deep/.swiper-button-next {
+  right: calc(50% - 50px);
+
+}
+
+/deep/.swiper-button-next::after {
+  margin-right: -3px;
+}
+
+/deep/.swiper-button-prev::after {
+  margin-left: -2px;
+}

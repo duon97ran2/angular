@@ -1,3 +1,15 @@
 <app-carousel></app-carousel>
+<h1 class="my-4 fw-bold text-dark text-uppercase text-decoration-underline ">Sản phẩm đang giảm giá</h1>
+<app-flash-sale [dataSource]="productData.saleProduct"></app-flash-sale>
+<a routerLink="/products" class="my-3">
+  <img src="https://bizweb.dktcdn.net/100/400/079/themes/782410/assets/cat-banner-2.jpg?1620496931374" width="100%"
+    alt="">
+</a>
 <h1 class="my-4 fw-bold text-dark text-uppercase text-decoration-underline ">Sản phẩm bán chạy</h1>
-<app-product-panel [dataSource]="products"></app-product-panel>
+<app-product-panel [dataSource]="productData.product"></app-product-panel>
+<a routerLink="/products" class="my-3">
+  <img src="https://thaihabooks.com/wp-content/uploads/2018/06/banner-sach-ma_i-thang-6-2018-02-scaled.jpg" width="100%"
+    alt="">
+</a>
+<h1 class="my-4 fw-bold text-dark text-uppercase text-decoration-underline ">Sách theo danh mục</h1>
+<app-cate-books></app-cate-books>

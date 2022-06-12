@@ -60,6 +60,12 @@ import { StatusChangeComponent } from './components/status-change/status-change.
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { ListUserComponent } from './admin/users/list-user/list-user.component';
 import { FormUserComponent } from './admin/users/form-user/form-user.component';
+import { FlashSaleComponent } from './components/flash-sale/flash-sale.component';
+import { SwiperModule } from 'swiper/angular';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { CateBooksComponent } from './components/cate-books/cate-books.component';
+
+
 
 registerLocaleData(localeVi, 'vi-VN');
 
@@ -99,6 +105,9 @@ registerLocaleData(localeVi, 'vi-VN');
     ImageUploadComponent,
     ListUserComponent,
     FormUserComponent,
+    FlashSaleComponent,
+    ProductCardComponent,
+    CateBooksComponent,
   ],
   imports: [
     BrowserModule,
@@ -124,6 +133,7 @@ registerLocaleData(localeVi, 'vi-VN');
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+    [SwiperModule],
     ToastrModule.forRoot()
   ],
   providers: [],

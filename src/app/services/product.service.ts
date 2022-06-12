@@ -26,6 +26,9 @@ export class ProductService {
   getProduct(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.products).pipe(catchError(this.handleError));
   };
+  getHomeProduct(): Observable<any> {
+    return this.http.get<any>(`${environment.products}/home`).pipe(catchError(this.handleError));
+  };
   getProductDetail(id: string | null): Observable<Product> {
     return this.http.get<Product>(`${environment.products}/${id}`).pipe(catchError(this.handleError));
   };

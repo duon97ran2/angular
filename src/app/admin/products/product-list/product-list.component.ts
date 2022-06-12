@@ -1,3 +1,4 @@
+import { createType } from './../../../type/product';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from './../../../services/product.service';
 import { Component, OnInit } from '@angular/core';
@@ -31,6 +32,10 @@ export class ProductListComponent implements OnInit {
   }
   onGetList() {
     this.ProductService.getProduct().subscribe(data => this.products = data)
+  }
+  onDuplicate(product: createType) {
+    delete product._id;
+    this.ProductService.createProduct(product).subscribe(data => { this.toarst.success("Nhân bản sản phẩm thành công"); this.onGetList() })
   }
   statusChange(id: string, status: number) {
     this.ProductService.updateProduct(id, { status: !status ? 1 : 0 }).subscribe(
