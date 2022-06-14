@@ -41,6 +41,23 @@
     </mat-selection-list>
   </mat-expansion-panel>
   <mat-expansion-panel class="rounded-0 ">
+    <mat-expansion-panel-header class="bg-dark text-white fw-semibold text-uppercase"> <span><i class="fas fa-database"
+          aria-hidden="true"></i> Orders
+      </span>
+    </mat-expansion-panel-header>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/orders/list"><i class="fas fa-list-alt"></i>
+          Order
+          list</a>
+      </mat-list-option>
+      <mat-list-option>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/orders/cancel"><i
+            class="fas fa-plus-circle"></i> Canceled Orders</a>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="rounded-0 ">
     <mat-expansion-panel-header class="bg-dark text-white fw-semibold text-uppercase"> <span><i class="fas fa-user"
           aria-hidden="true"></i> Users
       </span>

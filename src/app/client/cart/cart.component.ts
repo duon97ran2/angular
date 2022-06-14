@@ -69,6 +69,7 @@ export class CartComponent implements OnInit {
     orderData.products = this.cartData;
     orderData.total = this.total;
     orderData.shipping = this.shipControl.value;
+    if (!this.checkOutForm.valid) return
     this.orderSerive.orderCreate(orderData).subscribe(data => {
       this.emptyCart();
       this.toarst.success("Đặt hàng thành công");

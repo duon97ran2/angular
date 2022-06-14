@@ -39,5 +39,6 @@ export type orderResponse = {
   address: string,
   total: number,
   shipping: number,
+  status: number,
   _id: string
 }

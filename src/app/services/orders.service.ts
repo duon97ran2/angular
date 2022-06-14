@@ -19,7 +19,10 @@ export class OrdersService {
   getOrders(): Observable<orderResponse[]> {
     return this.http.get<orderResponse[]>(environment.orders).pipe(catchError(this.handleErrror));
   }
-  updateOrder(id: string, data: orderRequest | number): Observable<orderResponse> {
+  getCancelOrders(): Observable<orderResponse[]> {
+    return this.http.get<orderResponse[]>(`${environment.orders}/cancel`).pipe(catchError(this.handleErrror));
+  }
+  updateOrder(id: string, data: orderRequest | { status: number }): Observable<orderResponse> {
     return this.http.put<orderResponse>(`${environment.orders}/${id}`, data).pipe(catchError(this.handleErrror));
   }
   removeOrder(id: string): Observable<orderResponse> {

@@ -1,3 +1,4 @@
+import { OrderDetailComponent } from './admin/orders/order-detail/order-detail.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { ProductPageComponent } from './client/product-page/product-page.component';
@@ -19,6 +20,7 @@ import { AboutComponent } from './about/about.component';
 import { DetailPageComponent } from './client/detail-page/detail-page.component';
 import { FormUserComponent } from './admin/users/form-user/form-user.component';
 import { ListUserComponent } from './admin/users/list-user/list-user.component';
+import { OrderListComponent } from './admin/orders/order-list/order-list.component';
 
 const routes: Routes = [
   {
@@ -129,6 +131,25 @@ const routes: Routes = [
             path: "form/:id",
             component: CatgoryFormComponent
           },
+        ]
+      },
+      {
+        path: "orders",
+        children: [
+          {
+            path: "list",
+            component: OrderListComponent,
+
+          },
+          {
+            path: "cancel",
+            component: OrderListComponent,
+          },
+          {
+            path: "detail/:id",
+            component: OrderDetailComponent,
+          },
+
         ]
       }
     ]

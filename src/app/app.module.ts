@@ -65,6 +65,8 @@ import { SwiperModule } from 'swiper/angular';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CateBooksComponent } from './components/cate-books/cate-books.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { OrderListComponent } from './admin/orders/order-list/order-list.component';
+import { OrderDetailComponent } from './admin/orders/order-detail/order-detail.component';
 
 
 
@@ -110,6 +112,8 @@ registerLocaleData(localeVi, 'vi-VN');
     ProductCardComponent,
     CateBooksComponent,
     SearchBarComponent,
+    OrderListComponent,
+    OrderDetailComponent,
   ],
   imports: [
     BrowserModule,
