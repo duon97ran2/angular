@@ -1,12 +1,12 @@
 <form class="input-group w-auto my-auto d-none d-sm-flex relative">
-  <input [formControl]="searchInput" type="search" class="form-control rounded" placeholder="Search"
+  <input #input [formControl]="searchInput" type="search" class="form-control rounded" placeholder="Search"
     style="min-width: 125px;">
 
   <button class="btn btn-dark"><i class="fas fa-search"></i></button>
 </form>
 <div class="position-relative">
-  <div class="bg-white border rounded-0  result p-1 m-0" *ngIf="products.length ">
-    <a *ngFor="let product of products" class="d-flex" routerLink="/products/detail/{{product._id}}">
+  <div class="bg-white border rounded-0  result p-1 m-0" *ngIf="input.value ">
+    <a *ngFor="let product of products" class="d-flex" (click)="reset()" routerLink="/products/detail/{{product._id}}">
       <img [src]="product.image[0]" alt="">
       <div class="ps-2 m-0 d-block">
         <h3 class="m-0 text-uppercase">{{product.name}}</h3>
@@ -18,7 +18,7 @@
       </div>
     </a>
   </div>
-  <div *ngIf="!products.length&&(searchInput.dirty||searchInput.touched)">
+  <div *ngIf="input.value&&!products.length">
     <div class="bg-white border rounded-0 d-flex result p-1 m-0">
       Không có kết quả tìm kiếm
     </div>

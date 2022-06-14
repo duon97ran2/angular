@@ -9,3 +9,11 @@ input[type=number] {
   -moz-appearance: textfield;
   text-align: center;
 }
+
+mat-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}

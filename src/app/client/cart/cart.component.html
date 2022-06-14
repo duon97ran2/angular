@@ -1,101 +1,160 @@
-<section class="h-100 h-custom bg-dark">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12">
-        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-          <div class="card-body p-0">
-            <div class="row g-0">
-              <div class="col-lg-8">
-                <div class="p-5">
-                  <div class="d-flex justify-content-between align-items-center mb-5">
-                    <h1 class="fw-bold mb-0 text-black">Giỏ hàng</h1>
-                    <h3 class="mb-0 text-muted">3 sản phẩm</h3>
+<mat-stepper #stepper linear>
+  <mat-step>
+    <ng-template matStepLabel color="accent">Thông tin giỏ hàng</ng-template>
+    <section class="h-100 h-custom bg-dark">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12">
+            <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-lg-8">
+                    <div class="p-5">
+                      <div class="d-flex justify-content-between align-items-center mb-5">
+                        <h1 class="fw-bold mb-0 text-black">Giỏ hàng</h1>
+                        <h3 class="mb-0 text-muted">3 sản phẩm</h3>
+                      </div>
+                      <hr class="my-4">
+
+
+
+
+                      <div class="row mb-4 d-flex justify-content-between align-items-center"
+                        *ngFor="let item of cartData">
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img src="{{item.image[0]}}" class="img-fluid rounded-3" alt="Cotton T-shirt">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <h3 class="text-black mb-0 text-uppercase">{{item.name}}</h3>
+                          <h3 class="text-muted">{{item.author}}</h3>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                          <button class="btn btn-link px-2" (click)="decrease(item._id)">
+                            <i class="fas fa-minus" aria-hidden="true"></i>
+                          </button>
+
+                          <input id="form1" min="1" name="quantity" value="{{item.quantity}}" type="number"
+                            class="form-control form-control-sm" />
+
+                          <button class="btn btn-link px-2" (click)="increase(item._id)">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h3 class="mb-0">{{
+                            (item.newPrice==0?item.price:item.newPrice)*item.quantity|
+                            currency:
+                            "đ":"symbol":"1.0-0":"vi-VN"
+                            }}</h3>
+                        </div>
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                          <button mat-mini-fab color="accent" (click)="onRemove(item._id)"><i
+                              class="fas fa-times"></i></button>
+                        </div>
+                      </div>
+
+                      <hr class="my-4">
+
+                      <div class="pt-5 d-flex justify-content-between">
+                        <h3 class="mb-0"><a routerLink="/" class="text-body"><i
+                              class="fas fa-long-arrow-alt-left me-2"></i>Quay lại trang chủ</a></h3>
+                        <button class="btn btn-dark" *ngIf="cartData.length" (click)="emptyCart()">Xóa giỏ hàng</button>
+                      </div>
+                    </div>
                   </div>
-                  <hr class="my-4">
+                  <div class="col-lg-4 bg-grey">
+                    <div class="p-5">
+                      <h3 class="fw-bold mb-5 mt-2 pt-1">Tổng quan</h3>
+                      <hr class="my-4">
 
+                      <div class="d-flex justify-content-between mb-4">
+                        <h5 class="text-uppercase">Giá sản phẩm</h5>
+                        <h5>{{total|
+                          currency:
+                          "đ":"symbol":"1.0-0":"vi-VN"}}</h5>
+                      </div>
 
+                      <h5 class="text-uppercase mb-3">Giao hàng</h5>
 
+                      <div class="mb-4 pb-2">
+                        <mat-form-field appearance="legacy">
+                          <mat-select [formControl]="shipControl">
+                            <mat-option *ngFor="let item of shipType" [value]="item.fee">{{item.name}}: -
+                              {{item.fee|
+                              currency:
+                              "đ":"symbol":"1.0-0":"vi-VN"}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
 
-                  <div class="row mb-4 d-flex justify-content-between align-items-center" *ngFor="let item of cartData">
-                    <div class="col-md-2 col-lg-2 col-xl-2">
-                      <img src="{{item.image[0]}}" class="img-fluid rounded-3" alt="Cotton T-shirt">
+                      <mat-form-field>
+                        <mat-label>Mã giảm giá</mat-label>
+                        <input type="text" matInput [formControl]="codeControl" placeholder="Nhập mã giảm giá">
+                        <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error> -->
+                      </mat-form-field>
+
+                      <hr class="my-4">
+
+                      <div class="d-flex justify-content-between mb-5">
+                        <h5 class="text-uppercase fw-bold">Giá tổng</h5>
+                        <h5 class="text-uppercase fw-bold text-dark">{{total+(+shipControl.value)|
+                          currency:
+                          "đ":"symbol":"1.0-0":"vi-VN"}}</h5>
+                      </div> <button type="button" *ngIf="cartData.length" class="btn btn-dark btn-block btn-lg"
+                        data-mdb-ripple-color="dark" matStepperNext>Thanh
+                        toán</button>
+
                     </div>
-                    <div class="col-md-3 col-lg-3 col-xl-3">
-                      <h3 class="text-black mb-0 text-uppercase">{{item.name}}</h3>
-                      <h3 class="text-muted">{{item.author}}</h3>
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button class="btn btn-link px-2" (click)="decrease(item._id)">
-                        <i class="fas fa-minus" aria-hidden="true"></i>
-                      </button>
-
-                      <input id="form1" min="1" name="quantity" value="{{item.quantity}}" type="number"
-                        class="form-control form-control-sm" />
-
-                      <button class="btn btn-link px-2" (click)="increase(item._id)">
-                        <i class="fas fa-plus" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                      <h3 class="mb-0">{{
-                        (item.newPrice==0?item.price:item.newPrice)*item.quantity|
-                        currency:
-                        "đ":"symbol":"1.0-0":"vi-VN"
-                        }}</h3>
-                    </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <button mat-mini-fab color="accent" (click)="onRemove(item._id)"><i
-                          class="fas fa-times"></i></button>
-                    </div>
-                  </div>
-
-                  <hr class="my-4">
-
-                  <div class="pt-5">
-                    <h3 class="mb-0"><a routerLink="/" class="text-body"><i
-                          class="fas fa-long-arrow-alt-left me-2"></i>Quay lại trang chủ</a></h3>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 bg-grey">
-                <div class="p-5">
-                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                  <hr class="my-4">
-
-                  <div class="d-flex justify-content-between mb-4">
-                    <h5 class="text-uppercase">items 3</h5>
-                    <h5>€ 132.00</h5>
-                  </div>
-
-                  <h5 class="text-uppercase mb-3">Shipping</h5>
-
-                  <div class="mb-4 pb-2">
-                    <select class="select">
-                      <option value="1">Standard-Delivery- €5.00</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                      <option value="4">Four</option>
-                    </select>
-                  </div>
-
-                  <h5 class="text-uppercase mb-3">Give code</h5>
-
-                  <div class="mb-5">
-                    <div class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplea2">Enter your code</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </mat-step>
+  <mat-step [stepControl]="checkOutForm">
+    <ng-template matStepLabel>Điền thông tin mua hàng</ng-template>
+    <section class="h-100 h-custom bg-dark">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12">
+            <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-lg-7">
+                    <div class="p-5">
+                      <form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Tên người nhận </mat-label>
+                          <input matInput formControlName="name" placeholder="Nhập tên người đặt hàng" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Email </mat-label>
+                          <input matInput formControlName="email" placeholder="Nhập email đặt hàng" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Số điện thoại </mat-label>
+                          <input matInput formControlName="phone" placeholder="Nhập địa chỉ đặt hàng" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                          <mat-label>Địa chỉ </mat-label>
+                          <input matInput formControlName="address" placeholder="Nhập địa chỉ nhận hàng" required>
+                        </mat-form-field>
+                        <div>
+                          <button type="submit" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark"
+                            matStepperNext>Đặt hàng</button>
+                          <button mat-button matStepperPrevious>Back</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
-
-                  <hr class="my-4">
-
-                  <div class="d-flex justify-content-between mb-5">
-                    <h5 class="text-uppercase">Total price</h5>
-                    <h5>€ 137.00</h5>
-                  </div>
-
-                  <button type="button" class="btn btn-dark btn-block btn-lg"
-                    data-mdb-ripple-color="dark">Register</button>
 
                 </div>
               </div>
@@ -103,6 +162,74 @@
           </div>
         </div>
       </div>
+    </section>
+
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <h1 class="fw-bold mb-0 text-black">Đặt hàng thành công
+    </h1>
+
+    <div>
+      Thông tin đơn hàng:
+      <h3>Người đặt: {{orderData.name}}</h3>
+      <h3>Email: {{orderData.email}}</h3>
+      <h3>Số điện thoại: {{orderData.phone}}</h3>
+      <h3>Địa chỉ: {{orderData.address}}</h3>
+      <h3>Phí giao hàng: {{orderData.shipping|
+        currency:
+        "đ":"symbol":"1.0-0":"vi-VN"}}</h3>
     </div>
-  </div>
-</section>
+    <table mat-table [dataSource]="orderData.products" *ngIf="orderData" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element;let i =index"> {{i+1}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> <a routerLink="/admin/products/detail/{{element._id}}">
+            {{element.name}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{(element.newPrice==0?element.price:element.newPrice)*element.quantity|
+          currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}} </td>
+      </ng-container>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> Image </th>
+        <td mat-cell *matCellDef="let element"> <img [src]="element?.image[0]" width="100px" alt=""> </td>
+      </ng-container>
+
+
+      <!-- Weight Column -->
+
+      <!-- Symbol Column -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <h3 class="mb-0 mt-3"><a routerLink="/" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Tiếp tục
+        mua
+        sắm</a></h3>
+  </mat-step>
+
+</mat-stepper>

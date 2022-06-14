@@ -16,13 +16,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 
 
 
 
-const MaterialComponents = [MatAutocompleteModule, MatBadgeModule, MatSidenavModule, MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatGridListModule, MatTooltipModule, MatExpansionModule, MatListModule, MatCardModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatIconModule]
+const MaterialComponents = [MatAutocompleteModule, MatStepperModule, MatBadgeModule, MatSidenavModule, MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatGridListModule, MatTooltipModule, MatExpansionModule, MatListModule, MatCardModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatIconModule]
 
 @NgModule({
   exports: [MaterialComponents]

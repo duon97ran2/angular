@@ -22,5 +22,8 @@ export class SearchBarComponent implements OnInit {
       switchMap((changedValue: string) => this.productService.searchProduct(changedValue))
     ).subscribe(data => { this.products = data, console.log(data) });
   }
-
+  reset() {
+    this.searchInput.reset();
+    this.products = [];
+  }
 }
