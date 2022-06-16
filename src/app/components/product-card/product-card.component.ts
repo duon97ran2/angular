@@ -9,7 +9,7 @@ import { Product } from 'src/app/type/product';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product: Product = { _id: "", name: "", price: 0, newPrice: 0, stock: 0, description: "", author: "", category: "", image: [], status: 0 };
+  @Input() product: Product = {} as Product;
   constructor(private lsService: LocalStorageService, private toarst: ToastrService) { }
 
   ngOnInit(): void {

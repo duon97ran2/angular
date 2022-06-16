@@ -36,8 +36,8 @@
     <mat-form-field appearance="legacy">
       <mat-label>Select product status</mat-label>
       <mat-select formControlName="status">
-        <mat-option value="0">Còn hàng</mat-option>
-        <mat-option value="1">Hết hàng</mat-option>
+        <mat-option [value]="0">Còn hàng</mat-option>
+        <mat-option [value]="1">Hết hàng</mat-option>
       </mat-select>
       <!-- <mat-error *ngIf="productForm.get('category')?.hasError('required')">
         This field is required

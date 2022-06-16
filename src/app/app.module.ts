@@ -67,6 +67,7 @@ import { CateBooksComponent } from './components/cate-books/cate-books.component
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { OrderListComponent } from './admin/orders/order-list/order-list.component';
 import { OrderDetailComponent } from './admin/orders/order-detail/order-detail.component';
+import { VerifyOrderComponent } from './client/verify-order/verify-order.component';
 
 
 
@@ -114,6 +115,7 @@ registerLocaleData(localeVi, 'vi-VN');
     SearchBarComponent,
     OrderListComponent,
     OrderDetailComponent,
+    VerifyOrderComponent,
   ],
   imports: [
     BrowserModule,

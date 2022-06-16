@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { OrdersService } from 'src/app/services/orders.service';
 import { CartType } from 'src/app/type/product';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-cart',
@@ -64,13 +65,14 @@ export class CartComponent implements OnInit {
     this.lsStorage.setCart(this.cartData);
   }
 
-  onSubmit() {
+  onSubmit(stepper: MatStepper) {
     const orderData = this.checkOutForm.value;
     orderData.products = this.cartData;
     orderData.total = this.total;
     orderData.shipping = this.shipControl.value;
     if (!this.checkOutForm.valid) return
     this.orderSerive.orderCreate(orderData).subscribe(data => {
+      stepper.next();
       this.emptyCart();
       this.toarst.success("Đặt hàng thành công");
       this.orderData = data;

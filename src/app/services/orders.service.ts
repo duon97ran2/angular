@@ -19,6 +19,9 @@ export class OrdersService {
   getOrders(): Observable<orderResponse[]> {
     return this.http.get<orderResponse[]>(environment.orders).pipe(catchError(this.handleErrror));
   }
+  confirmOrder(id: string, token: string): Observable<any> {
+    return this.http.get<any>(`${environment.orders}/${id}/${token}`).pipe(catchError(this.handleErrror));
+  }
   getCancelOrders(): Observable<orderResponse[]> {
     return this.http.get<orderResponse[]>(`${environment.orders}/cancel`).pipe(catchError(this.handleErrror));
   }

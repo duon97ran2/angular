@@ -1,3 +1,4 @@
+import { VerifyOrderComponent } from './client/verify-order/verify-order.component';
 import { OrderDetailComponent } from './admin/orders/order-detail/order-detail.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserListComponent } from './user/user-list/user-list.component';
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: "cart",
         component: CartComponent
+      },
+      {
+        path: "verify/:id/:token",
+        component: VerifyOrderComponent
       },
       {
         path: "products",

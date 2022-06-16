@@ -1,3 +1,5 @@
+import { CategoryResponse } from "./category"
+
 export type Product = {
   _id: string,
   name: string,
@@ -5,7 +7,7 @@ export type Product = {
   newPrice: number,
   image: string[],
   stock: number,
-  category: string,
+  category: CategoryResponse,
   description: string,
   author: string,
   status: number
@@ -29,7 +31,7 @@ export type CartType = {
   newPrice: number,
   image: string[],
   stock: number,
-  category: string,
+  category: CategoryResponse,
   description: string,
   author: string,
   quantity: number,
