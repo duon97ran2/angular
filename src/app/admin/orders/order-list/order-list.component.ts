@@ -28,27 +28,27 @@ export class OrderListComponent implements OnInit {
     }
   }
   statusUpdate(status: number, id: string) {
-    let confirmDelete: any = '';
+    let confirmUpdate: any = '';
     switch (status) {
       case 0:
-        confirmDelete = confirm("Khôi phục đơn hàng?");
+        confirmUpdate = confirm("Khôi phục đơn hàng?");
         break;
       case 1:
-        confirmDelete = confirm("Xác nhận đơn hàng?");
+        confirmUpdate = confirm("Xác nhận đơn hàng?");
         break;
       case 2:
-        confirmDelete = confirm("Tiến hành giao hàng?");
+        confirmUpdate = confirm("Tiến hành giao hàng?");
         break;
       case 3:
-        confirmDelete = confirm("Hoàn thành giao hàng?");
+        confirmUpdate = confirm("Hoàn thành giao hàng?");
         break;
       case 4:
-        confirmDelete = confirm("Hủy đơn hàng?");
+        confirmUpdate = confirm("Hủy đơn hàng?");
         break;
       default:
         break;
     }
-    if (confirmDelete) {
+    if (confirmUpdate) {
       this.orderService.updateOrder(id, { status }).subscribe(data => { this.toarst.success("Cập nhật trạng thái thành công"); this.getData() })
     }
   }

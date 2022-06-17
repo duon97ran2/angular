@@ -1,0 +1,76 @@
+<section class="h-100 h-custom bg-dark">
+  <div class="container py-5 h-100">
+    <mat-card>
+      <div>
+        <strong>Thông tin đơn hàng: {{orderData._id}}</strong>
+        <h3>Người đặt: {{orderData.name}}</h3>
+        <h3>Email: {{orderData.email}}</h3>
+        <h3>Số điện thoại: {{orderData.phone}}</h3>
+        <h3>Địa chỉ: {{orderData.address}}</h3>
+        <h3>Trạng thái: <div [ngSwitch]="orderData.status">
+            <button class="btn btn-sm btn-outline-warning" *ngSwitchCase="0">Chờ xác nhận</button>
+            <button class="btn btn-sm btn-outline-primary" *ngSwitchCase="1">Đã xác nhận</button>
+            <button class="btn btn-sm btn-outline-secondary" *ngSwitchCase="2">Đang giao</button>
+            <button class="btn btn-sm btn-outline-success" *ngSwitchCase="3">Hoàn thành</button>
+            <button class="btn btn-sm btn-outline-danger" *ngSwitchCase="4">Đã hủy</button>
+          </div>
+        </h3>
+        <h3>Gía trị đơn hàng: {{orderData.total|
+          currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}}</h3>
+        <h3>Phí giao hàng: {{orderData.shipping|
+          currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}}</h3>
+      </div>
+      <table mat-table [dataSource]="orderData.products" *ngIf="orderData" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element;let i =index"> {{i+1}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> <a routerLink="/admin/products/detail/{{element._id}}">
+              {{element.name}}</a>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element">
+            {{(element.newPrice==0?element.price:element.newPrice)*element.quantity|
+            currency:
+            "đ":"symbol":"1.0-0":"vi-VN"}} </td>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef> Image </th>
+          <td mat-cell *matCellDef="let element"> <img [src]="element?.image[0]" width="100px" alt=""> </td>
+        </ng-container>
+
+
+        <!-- Weight Column -->
+
+        <!-- Symbol Column -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card>
+
+  </div>
+</section>

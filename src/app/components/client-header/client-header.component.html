@@ -36,7 +36,11 @@
 
     <!-- Right elements -->
     <div class="d-flex">
-      <a class="nav-link text-dark" routerLink="/cart">
+      <a class="nav-link text-dark" matTooltipPosition="above" matTooltip="Tìm kiếm đơn hàng"
+        routerLink="/search/orders">
+        <i class="fas fa-binoculars fa-xl"></i>
+      </a>
+      <a class="nav-link text-dark" matTooltipPosition="above" matTooltip="Giỏ hàng" routerLink="/cart">
         <i class="fas fa-shopping-cart fa-xl"></i>
         <span class="badge rounded-pill badge-notification bg-danger">{{cartQuantity}}</span>
       </a>

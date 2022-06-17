@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Xác nhận email</h1>
+<div mat-dialog-content>
+  Một mã xác nhận đã được gửi đến email của bạn, vui lòng nhập mã tại đây
+</div>
+<div mat-dialog-actions>
+  <form [formGroup]="codeForm" (ngSubmit)="codeSubmit()">
+    <mat-form-field appearance="legacy">
+      <mat-label>Mã xác nhận</mat-label>
+      <input type="text" matInput formControlName="code">
+    </mat-form-field>
+    <div>
+      <button type="submit" mat-button cdkFocusInitial>Xác nhận</button>
+      <button mat-button mat-dialog-close>Đóng</button>
+    </div>
+  </form>
+</div>

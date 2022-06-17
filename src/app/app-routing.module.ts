@@ -1,3 +1,4 @@
+import { OrderDetailSearchComponent } from './client/order-detail-search/order-detail-search.component';
 import { VerifyOrderComponent } from './client/verify-order/verify-order.component';
 import { OrderDetailComponent } from './admin/orders/order-detail/order-detail.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
@@ -22,6 +23,7 @@ import { DetailPageComponent } from './client/detail-page/detail-page.component'
 import { FormUserComponent } from './admin/users/form-user/form-user.component';
 import { ListUserComponent } from './admin/users/list-user/list-user.component';
 import { OrderListComponent } from './admin/orders/order-list/order-list.component';
+import { OrderSearchComponent } from './client/order-search/order-search.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,24 @@ const routes: Routes = [
       {
         path: "cart",
         component: CartComponent
+      },
+      {
+        path: "search",
+        children: [
+          {
+            path: "orders",
+            children: [
+              {
+                path: "",
+                component: OrderSearchComponent
+              },
+              {
+                path: "detail/:id",
+                component: OrderDetailSearchComponent
+              }
+            ]
+          }
+        ]
       },
       {
         path: "verify/:id/:token",

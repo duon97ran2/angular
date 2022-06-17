@@ -16,6 +16,12 @@ export class OrdersService {
   orderCreate(data: orderRequest): Observable<orderResponse> {
     return this.http.post<orderResponse>(environment.orders, data).pipe(catchError(this.handleErrror));
   }
+  findEmail(data: { email: string }): Observable<any> {
+    return this.http.post<any>(`${environment.orders}/find-email`, data).pipe(catchError(this.handleErrror));
+  }
+  findOrders(data: { code: string }): Observable<orderResponse[]> {
+    return this.http.post<orderResponse[]>(`${environment.orders}/find-order`, data).pipe(catchError(this.handleErrror));
+  }
   getOrders(): Observable<orderResponse[]> {
     return this.http.get<orderResponse[]>(environment.orders).pipe(catchError(this.handleErrror));
   }

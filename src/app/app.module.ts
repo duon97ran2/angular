@@ -68,6 +68,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { OrderListComponent } from './admin/orders/order-list/order-list.component';
 import { OrderDetailComponent } from './admin/orders/order-detail/order-detail.component';
 import { VerifyOrderComponent } from './client/verify-order/verify-order.component';
+import { OrderSearchComponent, DialogAnimationsExampleDialog } from './client/order-search/order-search.component';
+import { OrderDetailSearchComponent } from './client/order-detail-search/order-detail-search.component';
 
 
 
@@ -116,6 +118,9 @@ registerLocaleData(localeVi, 'vi-VN');
     OrderListComponent,
     OrderDetailComponent,
     VerifyOrderComponent,
+    OrderSearchComponent,
+    DialogAnimationsExampleDialog,
+    OrderDetailSearchComponent
   ],
   imports: [
     BrowserModule,
