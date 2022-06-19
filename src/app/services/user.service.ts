@@ -24,6 +24,9 @@ export class UserServices {
   deleteUser(id: string): Observable<any> {
     return this.http.delete<any>(`${environment.users}/${id}`).pipe(catchError(this.handleError));
   };
+  confirmUser(id: string, token: string): Observable<any> {
+    return this.http.get<any>(`${environment.users}/${id}/${token}`).pipe(catchError(this.handleError));
+  };
   updateUserInfo(id: string, data: any): Observable<UserResponse> {
     return this.http.put<UserResponse>(`${environment.users}/${id}`, data).pipe(catchError(this.handleError));
   };

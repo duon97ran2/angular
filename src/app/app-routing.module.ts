@@ -69,7 +69,17 @@ const routes: Routes = [
       },
       {
         path: "verify/:id/:token",
-        component: VerifyOrderComponent
+        children: [
+          {
+            path: "order",
+            component: VerifyOrderComponent
+          },
+          {
+            path: "user",
+            component: VerifyOrderComponent
+          }
+        ]
+
       },
       {
         path: "products",

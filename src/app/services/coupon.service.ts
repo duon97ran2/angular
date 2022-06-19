@@ -27,5 +27,11 @@ export class CouponService {
   removeCoupon(id: string): Observable<CouponResponse> {
     return this.http.delete<CouponResponse>(`${environment.coupon}/${id}`).pipe(catchError(this.handleError));
   }
+  getCoupon(id: string): Observable<CouponResponse> {
+    return this.http.get<CouponResponse>(`${environment.coupon}/${id}`).pipe(catchError(this.handleError));
+  }
+  sendCoupon(id: string): Observable<any> {
+    return this.http.get<any>(`${environment.coupon}/send/${id}`).pipe(catchError(this.handleError));
+  }
 
 }

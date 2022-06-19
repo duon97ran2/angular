@@ -40,7 +40,7 @@ export class AuthFormComponent implements OnInit {
       this.authService.login(this.authForm.value).subscribe(
         data => {
           localStorage.setItem("loggedInUser", JSON.stringify(data));
-          this.toastr.success("Login success")
+          this.toastr.success("Đăng nhập thành công")
           this.router.navigateByUrl('/home');
         },
         error => this.toastr.error(error)
@@ -48,7 +48,7 @@ export class AuthFormComponent implements OnInit {
     }
     if (this.formType == "register") {
       this.authService.register(this.authForm.value).subscribe(data => {
-        this.toastr.success("Register success")
+        this.toastr.success("Đăng kí thành công, một email sẽ được gửi tới cho bạn vui lòng truy cập để xác nhận tài khoản")
         this.router.navigateByUrl('/login');
       },
         error => this.toastr.error(error))

@@ -27,8 +27,13 @@ export class CouponListComponent implements OnInit {
     this.couponService.updateCoupon({ status: !status ? 1 : 0 }, id).subscribe(data => { this.toarst.success("Cập nhật trạng thái thành công"); this.onGetList() });
   }
   onDelete(id: string) {
-    const confirmDelete = confirm("Xoá danh mục này?");
+    const confirmDelete = confirm("Xoá mã giảm giá này?");
     if (!confirmDelete) return
-    this.couponService.removeCoupon(id).subscribe(data => { this.toarst.success("Xoá danh mục thành công"); this.onGetList() });
+    this.couponService.removeCoupon(id).subscribe(data => { this.toarst.success("Xoá mã giảm giá thành công"); this.onGetList() });
+  }
+  onSend(id: string) {
+    const confirmDelete = confirm("Gửi mã giảm giá này?");
+    if (!confirmDelete) return
+    this.couponService.sendCoupon(id).subscribe(data => { this.toarst.success("Gửi mã giảm giá thành công"); });
   }
 }

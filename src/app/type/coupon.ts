@@ -2,7 +2,7 @@ export type CouponResponse = {
   name: string,
   code: string,
   amount_off: number,
-  valid_users: Array<string>,
+  valid_users: Array<any>,
   status: number,
   redeem_times: number,
   _id: number
