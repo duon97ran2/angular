@@ -18,13 +18,14 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 
 
 
 
-const MaterialComponents = [MatAutocompleteModule, MatDialogModule, MatStepperModule, MatBadgeModule, MatSidenavModule, MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatGridListModule, MatTooltipModule, MatExpansionModule, MatListModule, MatCardModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatIconModule]
+const MaterialComponents = [MatAutocompleteModule, MatDialogModule, MatStepperModule, MatBadgeModule, MatSidenavModule, MatSlideToggleModule, MatToolbarModule, MatButtonModule, MatGridListModule, MatTooltipModule, MatExpansionModule, MatListModule, MatCardModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatChipsModule, MatProgressBarModule, MatIconModule]
 
 @NgModule({
   exports: [MaterialComponents]

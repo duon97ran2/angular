@@ -24,6 +24,8 @@ import { FormUserComponent } from './admin/users/form-user/form-user.component';
 import { ListUserComponent } from './admin/users/list-user/list-user.component';
 import { OrderListComponent } from './admin/orders/order-list/order-list.component';
 import { OrderSearchComponent } from './client/order-search/order-search.component';
+import { CouponListComponent } from './admin/coupon/coupon-list/coupon-list.component';
+import { CouponCreateComponent } from './admin/coupon/coupon-create/coupon-create.component';
 
 const routes: Routes = [
   {
@@ -155,6 +157,23 @@ const routes: Routes = [
           {
             path: "form/:id",
             component: CatgoryFormComponent
+          },
+        ]
+      },
+      {
+        path: "coupon",
+        children: [
+          {
+            path: "list",
+            component: CouponListComponent
+          },
+          {
+            path: "form",
+            component: CouponCreateComponent
+          },
+          {
+            path: "form/:id",
+            component: CouponCreateComponent
           },
         ]
       },

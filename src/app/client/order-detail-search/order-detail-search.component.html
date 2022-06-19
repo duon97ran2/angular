@@ -15,6 +15,9 @@
             <button class="btn btn-sm btn-outline-danger" *ngSwitchCase="4">Đã hủy</button>
           </div>
         </h3>
+        <h3>Mã giảm giá: {{orderData.amount_off|
+          currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}}</h3>
         <h3>Gía trị đơn hàng: {{orderData.total|
           currency:
           "đ":"symbol":"1.0-0":"vi-VN"}}</h3>

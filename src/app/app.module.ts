@@ -70,6 +70,8 @@ import { OrderDetailComponent } from './admin/orders/order-detail/order-detail.c
 import { VerifyOrderComponent } from './client/verify-order/verify-order.component';
 import { OrderSearchComponent, DialogAnimationsExampleDialog } from './client/order-search/order-search.component';
 import { OrderDetailSearchComponent } from './client/order-detail-search/order-detail-search.component';
+import { CouponCreateComponent } from './admin/coupon/coupon-create/coupon-create.component';
+import { CouponListComponent } from './admin/coupon/coupon-list/coupon-list.component';
 
 
 
@@ -120,7 +122,9 @@ registerLocaleData(localeVi, 'vi-VN');
     VerifyOrderComponent,
     OrderSearchComponent,
     DialogAnimationsExampleDialog,
-    OrderDetailSearchComponent
+    OrderDetailSearchComponent,
+    CouponCreateComponent,
+    CouponListComponent
   ],
   imports: [
     BrowserModule,

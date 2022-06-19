@@ -75,6 +75,24 @@
       </mat-list-option>
     </mat-selection-list>
   </mat-expansion-panel>
+  <mat-expansion-panel class="rounded-0 ">
+    <mat-expansion-panel-header class="bg-dark text-white fw-semibold text-uppercase"> <span><i class="fas fa-ticket"
+          aria-hidden="true"></i> Coupon
+      </span>
+    </mat-expansion-panel-header>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/coupon/list"><i class="fas fa-list-alt"></i>
+          Coupon
+          list</a>
+      </mat-list-option>
+      <mat-list-option>
+        <a class="text-dark mx-2 d-block h-full w-full " routerLink="/admin/coupon/form"><i
+            class="fas fa-plus-circle"></i> Create new
+          coupon</a>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-expansion-panel>
 </mat-accordion>
 <mat-card role="button" class="bg-dark text-white fw-semibold text-uppercase rounded-0 ps-4" (click)="signOut()"><i
     class="fas fa-sign-out" aria-hidden="true"></i> Logout

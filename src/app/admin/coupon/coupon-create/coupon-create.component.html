@@ -1,0 +1,34 @@
+<form [formGroup]="couponForm" (ngSubmit)="onSubmit()">
+  <h1>{{currentId?"Update":"Create"}} category </h1>
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name">
+    </mat-form-field>
+    <app-show-validate [field]="couponForm.get('name')" title="Name"></app-show-validate>
+    <mat-form-field>
+      <mat-label>Code</mat-label>
+      <input type="text" matInput formControlName="code">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Amount off</mat-label>
+      <input type="number" [min]="0" matInput formControlName="amount_off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Valid Users</mat-label>
+      <mat-select formControlName="valid_users" multiple>
+        <mat-option #allSelected (click)="toggleAllSelection(allSelected)" [value]="0">All</mat-option>
+        <mat-option *ngFor="let user of users" [value]="user._id">{{user.email}}</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Redeem times</mat-label>
+      <input type="number" matInput formControlName="redeem_times">
+    </mat-form-field>
+    <app-show-validate [field]="couponForm.get('redeem_times')" title="Redeem times"></app-show-validate>
+    <div class="my-3">
+      <button type="submit" [disabled]="!couponForm.valid" class="btn btn-dark">{{currentId?"Update":"Create"}}</button>
+    </div>
+  </mat-card>
+</form>
