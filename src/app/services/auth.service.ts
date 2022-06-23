@@ -38,6 +38,18 @@ export class AuthService {
   register(dataRegister: LoginType): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${environment.register}`, dataRegister).pipe(catchError(this.handleError));
   };
+  updateUsername(username: string, id: string | undefined): Observable<LoginResponse> {
+    return this.http.put<LoginResponse>(`${environment.users}/${id}`, { username }).pipe(catchError(this.handleError), tap(response => {
+      localStorage.setItem("loggedInUser", JSON.stringify(response));
+      this.userSubject.next(response);
+    }));
+  };
+  updateAvatar(avatar: string[], id: string | undefined): Observable<LoginResponse> {
+    return this.http.put<LoginResponse>(`${environment.users}/${id}`, { avatar }).pipe(catchError(this.handleError), tap(response => {
+      localStorage.setItem("loggedInUser", JSON.stringify(response));
+      this.userSubject.next(response);
+    }));
+  };
   logOut() {
     localStorage.removeItem("loggedInUser");
     this.userSubject.next(null);

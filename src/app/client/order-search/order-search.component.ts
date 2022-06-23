@@ -64,7 +64,10 @@ export class OrderSearchComponent implements OnInit {
 })
 export class DialogAnimationsExampleDialog {
   codeForm: FormGroup
-  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, private toarst: ToastrService, private orderService: OrdersService,
+  constructor(
+    public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>,
+    private toarst: ToastrService,
+    private orderService: OrdersService,
     @Inject(MAT_DIALOG_DATA) public dataDialog: { payload: any, type: 'success' | 'failed' }) {
     this.codeForm = new FormGroup({
       code: new FormControl('', Validators.required)
@@ -72,7 +75,13 @@ export class DialogAnimationsExampleDialog {
   }
   codeSubmit() {
     if (this.codeForm.valid) {
-      this.orderService.findOrders(this.codeForm.value).subscribe(data => { this.dataDialog = { payload: data, type: 'success' }; this.dialogRef.close(this.dataDialog); }, error => { this.dataDialog = { payload: error, type: 'failed' }; this.dialogRef.close(this.dataDialog); })
+      this.orderService.findOrders(this.codeForm.value).subscribe(data => {
+        this.dataDialog = { payload: data, type: 'success' };
+        this.dialogRef.close(this.dataDialog);
+      }, error => {
+        this.dataDialog = { payload: error, type: 'failed' };
+        this.dialogRef.close(this.dataDialog);
+      })
 
     }
   }

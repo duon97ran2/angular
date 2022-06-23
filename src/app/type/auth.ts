@@ -6,5 +6,7 @@ export type LoginResponse = {
   email: string,
   _id: string,
   avatar: string[],
-  username?: string
+  username?: string,
+  status: number,
+  role: number
 }

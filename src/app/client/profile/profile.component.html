@@ -1,0 +1,41 @@
+<section class="h-100 h-custom bg-dark">
+  <div class="container py-5 h-100">
+    <mat-card>
+      <mat-card-title>Thông tin người dùng</mat-card-title>
+      <div class="row ">
+        <div class="col-4 w-full text-center">
+          <div class="border border-2 rounded border-dark p-3">
+            <img src="{{currentUser?.avatar}}" alt="" mat-card-image>
+          </div>
+          <button (click)="updateAvatar()" class="btn btn-dark btn-sm m-2"><i class="fas fa-camera"
+              aria-hidden="true"></i> Thay đổi ảnh đại
+            diện</button>
+          <div>
+            <button class="btn btn-dark btn-sm m-2"><i class="fas fa-eye" aria-hidden="true"></i> Xem đơn
+              hàng</button>
+            <button class="btn btn-dark btn-sm m-2"><i class="fas fa-key" aria-hidden="true"></i> Đổi mật
+              khẩu</button>
+          </div>
+        </div>
+        <div class="col-8">
+          <h3>Email: {{currentUser?.email}} </h3>
+          <h3>Trạng thái:
+            <button *ngIf="!currentUser?.status" class="btn btn-sm btn-outline-dark">Kích hoạt</button>
+            <button *ngIf="currentUser?.status" class="btn btn-sm btn-outline-danger">Chưa kích hoạt</button>
+          </h3>
+          <h3>Vai trò: {{currentUser?.role?"Admin":"Member"}}</h3>
+          <form>
+            <div class="d-flex align-items-center">
+              <mat-form-field appearance="legacy">
+                <mat-label>Tên người dùng</mat-label>
+                <input matInput type="text" [formControl]="username">
+                <mat-error *ngIf="username.invalid">Tên người dùng là bắt buộc</mat-error>
+              </mat-form-field>
+              <button (click)="changeUsername(username)" class="btn btn-sm btn-dark ms-2">Đổi tên</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</section>

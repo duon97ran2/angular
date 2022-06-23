@@ -1,0 +1,33 @@
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+  <div class="d-flex align-items-center justify-content-end my-3 gap-3">
+    <mat-form-field appearance="legacy">
+      <mat-label>Sắp xếp theo</mat-label>
+      <mat-select formControlName="sort">
+        <mat-option value="price-desc">Giá cao nhất</mat-option>
+        <mat-option value="price-asc">Giá thấp nhất</mat-option>
+        <mat-option value="date-new">Ngày mới nhất</mat-option>
+        <mat-option value="date-old">Ngày cũ nhất</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Khoảng giá</mat-label>
+      <mat-select formControlName="range">
+        <mat-option value="under-50000">Dưới {{50000| currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}}</mat-option>
+        <mat-option value="50000-to-100000">Từ {{50000| currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}} đến {{100000| currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}}</mat-option>
+        <mat-option value="over-100000">Trên {{100000| currency:
+          "đ":"symbol":"1.0-0":"vi-VN"}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Danh mục</mat-label>
+      <mat-select formControlName="category" multiple>
+        <mat-option *ngFor="let category of categoryData" value="{{category._id}}">{{category.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="submit" class="btn btn-dark btn-sm">Lọc</button>
+    <button class="btn btn-dark btn-sm" (click)="filterForm.reset()">Tạo lại</button>
+  </div>
+</form>

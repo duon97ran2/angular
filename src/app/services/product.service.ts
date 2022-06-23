@@ -26,6 +26,9 @@ export class ProductService {
   getProduct(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.products).pipe(catchError(this.handleError));
   };
+  getFilterProduct(sort: string, category: string, range: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`${environment.products}?sort=${sort}&price_range=${range}&category=${category}`).pipe(catchError(this.handleError));
+  };
   searchProduct(text: string): Observable<Product[]> {
     return this.http.get<Product[]>(`${environment.search}?q=${text}`).pipe(catchError(this.handleError))
   }

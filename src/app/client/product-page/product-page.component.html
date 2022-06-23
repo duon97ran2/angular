@@ -1,3 +1,4 @@
 <h1 class="my-4 fw-bold text-dark text-uppercase text-decoration-underline ">
   {{categoryName?categoryName:"TẤT CẢ SẢN PHẨM"}}</h1>
+<app-product-filter (filterHandle)="productSet($event)"></app-product-filter>
 <app-product-panel [dataSource]="products"></app-product-panel>

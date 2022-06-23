@@ -50,8 +50,7 @@
               <a routerLink="detail/{{element._id}}" target="_blank"><button class="btn btn-sm btn-info me-2">Chi
                   tiết</button></a>
 
-              <button (click)="statusUpdate(4,element._id)" class="btn btn-sm btn-danger"
-                *ngIf="element.status!=3&&element.status!=4">Hủy
+              <button (click)="statusUpdate(4,element._id)" class="btn btn-sm btn-danger" *ngIf="element.status==0">Hủy
                 đơn</button>
             </div>
           </td>

@@ -29,6 +29,10 @@ table {
   color: var(--primary) !important
 }
 
+.border-dark {
+  border-color: var(--primary) !important;
+}
+
 .btn-outline-dark {
   outline-color: var(--primary) !important;
   border-color: var(--primary) !important;

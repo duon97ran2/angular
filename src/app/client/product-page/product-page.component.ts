@@ -26,5 +26,8 @@ export class ProductPageComponent implements OnInit {
     });
 
   }
+  productSet(data: Product[]) {
+    this.products = data;
+  }
 
 }

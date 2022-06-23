@@ -26,6 +26,7 @@ import { OrderListComponent } from './admin/orders/order-list/order-list.compone
 import { OrderSearchComponent } from './client/order-search/order-search.component';
 import { CouponListComponent } from './admin/coupon/coupon-list/coupon-list.component';
 import { CouponCreateComponent } from './admin/coupon/coupon-create/coupon-create.component';
+import { ProfileComponent } from './client/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path: "cart",
         component: CartComponent
+      },
+      {
+        path: "profile",
+        component: ProfileComponent
       },
       {
         path: "search",

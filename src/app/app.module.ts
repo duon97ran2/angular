@@ -72,8 +72,9 @@ import { OrderSearchComponent, DialogAnimationsExampleDialog } from './client/or
 import { OrderDetailSearchComponent } from './client/order-detail-search/order-detail-search.component';
 import { CouponCreateComponent } from './admin/coupon/coupon-create/coupon-create.component';
 import { CouponListComponent } from './admin/coupon/coupon-list/coupon-list.component';
-
-
+import { ProductFilterComponent } from "./components/product-filter/product-filter.component";
+import { ProfileComponent } from './client/profile/profile.component'
+import { AvatarDiaglog } from "./client/profile/profile.component"
 
 registerLocaleData(localeVi, 'vi-VN');
 
@@ -124,7 +125,10 @@ registerLocaleData(localeVi, 'vi-VN');
     DialogAnimationsExampleDialog,
     OrderDetailSearchComponent,
     CouponCreateComponent,
-    CouponListComponent
+    CouponListComponent,
+    ProductFilterComponent,
+    ProfileComponent,
+    AvatarDiaglog
   ],
   imports: [
     BrowserModule,
