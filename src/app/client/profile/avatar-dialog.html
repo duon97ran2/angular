@@ -1,11 +1,11 @@
 <h1 mat-dialog-title>Cập nhật ảnh đại diện</h1>
 <div mat-dialog-content>
   Chọn ảnh đại diện mới của bạn
-  <app-image-upload (imageHandle)="setAvatar($event)" limit="1"></app-image-upload>
+  <app-image-upload (imageHandle)="setAvatar($event)" (stateHandle)="setStatus($event)" limit="1"></app-image-upload>
 </div>
 <div mat-dialog-actions>
   <div>
-    <button (click)="updateAvatar()" mat-button cdkFocusInitial>Xác nhận</button>
+    <button (click)="updateAvatar()" [disabled]="status" mat-button cdkFocusInitial>Xác nhận</button>
     <button mat-button mat-dialog-close>Đóng</button>
   </div>
 </div>

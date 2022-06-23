@@ -28,9 +28,7 @@ export class ProductFilterComponent implements OnInit {
   onSubmit() {
     const { category, sort, range } = this.filterForm.controls;
     this.productService.getFilterProduct(sort.value, JSON.stringify(category.value), range.value).subscribe(data => {
-      if (data.length) {
-        this.filterHandle.emit(data);
-      }
+      this.filterHandle.emit(data);
     });
   }
 

@@ -10,6 +10,11 @@
 <mat-error *ngIf="field.errors?.['hasProductError']&&(field.dirty||field.touched)" class="text-danger">{{title}} must
   have
   "Product"</mat-error>
+<!-- <mat-error *ngIf="field.parent.errors?.['hasComfirmError']&&(field.dirty||field.touched)" class="text-danger">Confirm
+  password
+  does
+  not
+  match new password</mat-error> -->
 <mat-error *ngIf="field.errors?.['min']&&(field.dirty||field.touched)" class="text-danger">{{title}} minimum
   is {{field.errors?.['min'].min}}</mat-error>
 <mat-error *ngIf="field.errors?.['max']&&(field.dirty||field.touched)" class="text-danger">{{title}} maximum

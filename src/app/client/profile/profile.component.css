@@ -1,4 +1,6 @@
 img {
-
-  object-fit: scale-down;
+  width: 40vh;
+  height: 40vh;
+  margin: auto;
+  object-fit: cover;
 }

@@ -50,6 +50,12 @@ export class AuthService {
       this.userSubject.next(response);
     }));
   };
+  checkPassword(password: string, id: string): Observable<any> {
+    return this.http.post<any>(`${environment.users}/${id}`, { password }).pipe(catchError(this.handleError))
+  };
+  updatePassword(data: { newPassword: string, confirmPassword: string }, id: string): Observable<any> {
+    return this.http.put<any>(`${environment.users}/${id}/password`, data).pipe(catchError(this.handleError))
+  };
   logOut() {
     localStorage.removeItem("loggedInUser");
     this.userSubject.next(null);
