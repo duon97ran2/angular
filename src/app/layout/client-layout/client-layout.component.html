@@ -21,6 +21,12 @@
           </mat-list-option>
         </mat-selection-list>
       </mat-expansion-panel>
+      <a routerLinkActive="active" routerLink="/login">
+        <mat-card class="text-dark bg-white fw-semibold text-uppercase rounded-0 ps-4">Đăng nhập</mat-card>
+      </a>
+      <a routerLinkActive="active" routerLink="/register">
+        <mat-card class="text-dark bg-white fw-semibold text-uppercase rounded-0 ps-4">Đăng ký</mat-card>
+      </a>
     </mat-sidenav>
     <mat-sidenav-content>
       <app-client-header (categoriesEmit)="setCategories($event)" [sidenav]="sidenav" class="sticky-top">

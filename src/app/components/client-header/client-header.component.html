@@ -47,7 +47,7 @@
         <i class="fas fa-shopping-cart fa-xl"></i>
         <span class="badge rounded-pill badge-notification bg-danger">{{cartQuantity}}</span>
       </a>
-      <div *ngIf="!userData" class="nav-item me-3 me-lg-1 active">
+      <div *ngIf="!userData" class="nav-item d-none d-xl-block me-3 me-lg-1 active">
 
         <a routerLink="/register">
           <button class="btn btn-outline-dark me-2" type="button">Register</button>
@@ -57,11 +57,6 @@
         </a>
       </div>
       <ul class="navbar-nav flex-row" *ngIf="userData">
-        <li class="nav-item me-3 me-lg-1 active">
-
-        </li>
-
-
         <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
           <a class="nav-link d-sm-flex align-items-sm-center nav-link dropdown-toggle " routerLink="/"
             id="navbarDropdownMenuLink" role="button" mdbDropdownToggle aria-expanded="false">
