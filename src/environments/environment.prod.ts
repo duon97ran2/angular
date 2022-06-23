@@ -1,8 +1,15 @@
-
-const apiURL = "https://nodejs-express-duon97ran2.vercel.app/api";
+const apiURL = "https://angular-server.vercel.app/api";
 
 
 export const environment = {
-  production: true,
+  production: false,
   products: `${apiURL}/products`,
+  image: `${apiURL}/upload`,
+  login: `${apiURL}/login`,
+  register: `${apiURL}/register`,
+  category: `${apiURL}/category`,
+  users: `${apiURL}/users`,
+  orders: `${apiURL}/orders`,
+  coupon: `${apiURL}/coupon`,
+  search: `${apiURL}/search`,
 };
