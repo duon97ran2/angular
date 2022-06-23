@@ -1,12 +1,13 @@
 <!-- Navbar-->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid justify-content-between">
 
     <!-- Left elements -->
 
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
       <!-- Brand -->
-      <div mdbDropdown class="nav-item dropdown d-md-none ">
+      <!-- <div mdbDropdown class="nav-item dropdown d-md-none ">
         <a class="nav-link dropdown-toggle hidden-arrow" id="navbarDropdownMenuLink" role="button" mdbDropdownToggle
           aria-expanded="false">
           <i class="fas fa-bars fa-lg"></i>
@@ -19,8 +20,10 @@
             <a class="dropdown-item" routerLink="/about">Giới thiệu</a>
           </li>
         </ul>
-      </div>
-      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="/home">
+      </div> -->
+      <button class="d-xl-none" mat-button (click)="sidenav.toggle()"><i class="fas fa-bars"
+          aria-hidden="true"></i></button>
+      <a class="navbar-brand me-2 mb-1 d-flex " routerLink="/home">
         <img src="../../../assets/images/file (1).svg" width="120px" alt="" loading="lazy" style="margin-top: 2px;" />
       </a>
 
@@ -30,17 +33,17 @@
     <!-- Left elements -->
 
     <!-- Center elements -->
-    <app-search-bar></app-search-bar>
+    <app-search-bar class="d-none d-md-block"></app-search-bar>
 
     <!-- Center elements -->
 
     <!-- Right elements -->
     <div class="d-flex">
-      <a class="nav-link text-dark" matTooltipPosition="above" matTooltip="Tìm kiếm đơn hàng"
+      <a class="nav-link px-2  text-dark" matTooltipPosition="above" matTooltip="Tìm kiếm đơn hàng"
         routerLink="/search/orders">
         <i class="fas fa-binoculars fa-xl"></i>
       </a>
-      <a class="nav-link text-dark" matTooltipPosition="above" matTooltip="Giỏ hàng" routerLink="/cart">
+      <a class="nav-link px-2  text-dark" matTooltipPosition="above" matTooltip="Giỏ hàng" routerLink="/cart">
         <i class="fas fa-shopping-cart fa-xl"></i>
         <span class="badge rounded-pill badge-notification bg-danger">{{cartQuantity}}</span>
       </a>
@@ -98,10 +101,10 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarCenteredExample"
+    <!-- <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarCenteredExample"
       aria-controls="navbarCenteredExample" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
-    </button>
+    </button> -->
 
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
@@ -140,6 +143,7 @@
       <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->
+    <app-search-bar class="d-block d-md-none mx-auto"></app-search-bar>
   </div>
   <!-- Container wrapper -->
 </nav>

@@ -1,5 +1,32 @@
 <div class="container-xxl container-fluid ">
-  <app-client-header class="sticky-top"></app-client-header>
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over">
+      <a routerLinkActive="active" routerLink="/home">
+        <mat-card class="text-dark bg-white fw-semibold text-uppercase rounded-0 ps-4">Trang chủ</mat-card>
+      </a>
+      <a routerLinkActive="active" routerLink="/about">
+        <mat-card class="text-dark bg-white fw-semibold text-uppercase rounded-0 ps-4">Giới thiệu</mat-card>
+      </a>
+      <a routerLinkActive="active" routerLink="/products">
+        <mat-card class="text-dark bg-white fw-semibold text-uppercase rounded-0 ps-4">Sản phẩm</mat-card>
+      </a>
+      <mat-expansion-panel rounded-0>
+        <mat-expansion-panel-header class="text-dark bg-white fw-semibold text-uppercase"> <span>Danh mục
+          </span>
+        </mat-expansion-panel-header>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option *ngFor="let category of categories">
+            <a class="text-dark mx-2 d-block h-full w-full " routerLinkActive="active"
+              routerLink="/category/{{category._id}}">{{category.name}}</a>
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-expansion-panel>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-client-header (categoriesEmit)="setCategories($event)" [sidenav]="sidenav" class="sticky-top">
+      </app-client-header>
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
